@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::selection {
+    background-color: var(--light-primary);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    outline: none;
+}
+
+select, option {
+    outline: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+:root {
+    --bg: #f5f4fe;
+    --bg-disable: #eee;
+
+    --primary: #ff6e40;
+    --dark-primary: #eb5c30;
+    --light-primary: rgba(255, 110, 64, .15);
+    --normal-primary: rgba(255, 110, 64, .45);
+
+    --success: #05b171;
+    --warning: #faae42;
+    --error: #ea4444;
+    --dark-success: #049660;
+    --dark-warning: #d58b23;
+    --dark-error: #c73a3a;
+
+    --border: #ced4da;
+    --light-border: #dee2e6;
+
+    --purple: #9932e7;
+    --blue: #25c2e3;
+    --dark: #293134;
+    --light: #ededed;
+    --white: #fff;
+    --light-gray: #6c757d;
+
+    --padding: 22px;
+    --icon-sidebar: 22px;
+    --sidebar-width: 320px;
+    --notification-width: 420px;
+    --header-height: 100px;
+    --cart-height: 300px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background-color: var(--bg);
+}
+
+.vetra {
+  position: absolute;
+  width: calc(100% + var(--notification-width));
+  min-height: 100vh;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100%;
+  padding: 0 0 30px var(--padding);
+  background-color: var(--bg);
+  transition: all 0.3s linear;
+  z-index: 999;
+}
+
+.overlay {
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -999;
+}
+
+.container .main {
+  position: relative;
+}
+
+.container .main .header,
+.container .main .header-mobile {
+  display: flex;
+  height: var(--header-height);
+  align-items: center;
+  padding: 0 var(--padding);
+}
+
+.container .main .header-mobile {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  justify-content: flex-end;
+  transition: all 0.25s linear;
+}
