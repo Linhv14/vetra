@@ -4,13 +4,16 @@ const Sidebar = () => {
   return (
     <aside className="sidebar reverse">
       <div className="logo-box flex-vertical">
-        <a href="#" className="logo flex-vertical">
+        <a
+          href="#"
+          className="logo flex-vertical">
           <Image
             className="image"
             src="/assets/logo.svg"
             width={200}
             height={100}
-            alt="Vetra logo" />
+            alt="Vetra logo"
+          />
         </a>
         <div className="close-sidebar">
           <i className="bi bi-x"></i>
@@ -19,12 +22,13 @@ const Sidebar = () => {
       <div className="sidebar-box scrollable scroll-visible">
         <div className="account rounded bg-white flex-vertical">
           <div className="account-image circle">
-            <Image 
-            className="image" 
-            src="/assets/users/avatar.jpg" 
-            width={40}
-            height={40}
-            alt="avatar" />
+            <Image
+              className="image"
+              src="/assets/users/avatar.jpg"
+              width={40}
+              height={40}
+              alt="avatar"
+            />
           </div>
           <div className="account-infor">
             <h4 className="name">Van Linh</h4>
@@ -73,8 +77,12 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">List</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Detail</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">List</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Detail</a>
+                </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
@@ -84,11 +92,21 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">List View</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Grid View</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Product Detail</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Shopping Cart</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Checkout</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">List View</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Grid View</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Product Detail</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Shopping Cart</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Checkout</a>
+                </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
@@ -98,10 +116,18 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">Dashboard</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Orders</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Addresses</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Wishlist</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Dashboard</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Orders</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Addresses</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Wishlist</a>
+                </li>
               </ul>
             </li>
             <li className="sidebar-item">
@@ -117,8 +143,12 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">List</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Detail</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">List</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Detail</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -130,7 +160,9 @@ const Sidebar = () => {
               <a href="#">
                 <i className="bi bi-chat-square"></i>
                 <span>Chats</span>
-                <span className="sidebar-badge badge flex-center bg-success count circle">15</span>
+                <span className="sidebar-badge badge flex-center bg-success count circle">
+                  15
+                </span>
               </a>
             </li>
             <li className="sidebar-item parent">
@@ -140,8 +172,12 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">Inbox</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Detail</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Inbox</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Detail</a>
+                </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
@@ -151,8 +187,12 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">List</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Detail</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">List</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Detail</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -167,8 +207,12 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">Post</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Connections</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Post</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Connections</a>
+                </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
@@ -178,8 +222,12 @@ const Sidebar = () => {
                 <i className="bi bi-arrow-right"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item"><a href="#">List View</a></li>
-                <li className="sidebar-dropdown-item"><a href="#">Grid View</a></li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">List View</a>
+                </li>
+                <li className="sidebar-dropdown-item">
+                  <a href="#">Grid View</a>
+                </li>
               </ul>
             </li>
             <li className="sidebar-item">
@@ -192,7 +240,9 @@ const Sidebar = () => {
               <a href="#">
                 <i className="bi bi-postcard"></i>
                 <span>Pricing Table</span>
-                <span className="sidebar-badge bg-success text rounded">New</span>
+                <span className="sidebar-badge bg-success text rounded">
+                  New
+                </span>
               </a>
             </li>
             <li className="sidebar-item">

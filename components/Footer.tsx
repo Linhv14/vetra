@@ -6,7 +6,11 @@ const Footer = () => {
       <ul className="footer-box">
         <li className="author">
           © 2022 Vetra -
-          <a href="#" target="_blank">Double L Teams</a>
+          <a
+            href="#"
+            target="_blank">
+            Double L Teams
+          </a>
         </li>
         <li className="footer-item">
           <a href="#">Licenses</a>

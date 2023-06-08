@@ -5,67 +5,68 @@
 @tailwind utilities;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 *::selection {
-    background-color: var(--light-primary);
+  background-color: var(--light-primary);
 }
 
 a {
-    text-decoration: none;
-    color: black;
-    outline: none;
+  text-decoration: none;
+  color: black;
+  outline: none;
 }
 
-select, option {
-    outline: none;
+select,
+option {
+  outline: none;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }
 
 :root {
-    --bg: #f5f4fe;
-    --bg-disable: #eee;
+  --bg: #f5f4fe;
+  --bg-disable: #eee;
 
-    --primary: #ff6e40;
-    --dark-primary: #eb5c30;
-    --light-primary: rgba(255, 110, 64, .15);
-    --normal-primary: rgba(255, 110, 64, .45);
+  --primary: #ff6e40;
+  --dark-primary: #eb5c30;
+  --light-primary: rgba(255, 110, 64, 0.15);
+  --normal-primary: rgba(255, 110, 64, 0.45);
 
-    --success: #05b171;
-    --warning: #faae42;
-    --error: #ea4444;
-    --dark-success: #049660;
-    --dark-warning: #d58b23;
-    --dark-error: #c73a3a;
+  --success: #05b171;
+  --warning: #faae42;
+  --error: #ea4444;
+  --dark-success: #049660;
+  --dark-warning: #d58b23;
+  --dark-error: #c73a3a;
 
-    --border: #ced4da;
-    --light-border: #dee2e6;
+  --border: #ced4da;
+  --light-border: #dee2e6;
 
-    --purple: #9932e7;
-    --blue: #25c2e3;
-    --dark: #293134;
-    --light: #ededed;
-    --white: #fff;
-    --light-gray: #6c757d;
+  --purple: #9932e7;
+  --blue: #25c2e3;
+  --dark: #293134;
+  --light: #ededed;
+  --white: #fff;
+  --light-gray: #6c757d;
 
-    --padding: 22px;
-    --icon-sidebar: 22px;
-    --sidebar-width: 320px;
-    --notification-width: 420px;
-    --header-height: 100px;
-    --cart-height: 300px;
+  --padding: 22px;
+  --icon-sidebar: 22px;
+  --sidebar-width: 320px;
+  --notification-width: 420px;
+  --header-height: 100px;
+  --cart-height: 300px;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    overflow-x: hidden;
-    background-color: var(--bg);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg);
 }
 
 .vetra {

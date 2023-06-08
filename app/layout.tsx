@@ -1,17 +1,17 @@
-import "@/style/global.css"
-import { ReactNode } from "react"
-import Sidebar from "@/components/Sidebar"
-import Header from "@/components/Header"
-import Notification from "@/components/Notification"
-import Setting from "@/components/Setting"
-import Footer from "@/components/Footer"
+import '@/style/global.css'
+import {ReactNode} from 'react'
+import Sidebar from '@/components/Sidebar'
+import Header from '@/components/Header'
+import Notification from '@/components/Notification'
+import Setting from '@/components/Setting'
+import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: "Vetra",
-  description: "E-commerce Dashboard App"
+  title: 'Vetra',
+  description: 'E-commerce Dashboard App',
 }
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const RootLayout = ({children}: {children: ReactNode}) => {
   return (
     <html lang="en">
       <body>
@@ -31,7 +31,6 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
           <Notification />
 
           <Setting />
-
         </main>
       </body>
     </html>
