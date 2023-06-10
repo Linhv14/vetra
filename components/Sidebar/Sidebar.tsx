@@ -34,8 +34,8 @@ const Sidebar = () => {
               <span className="block text-light-gray text-sm py-5 font-light">
                 {key}
               </span>
-              {items.map((item: ISidebarItem) => (
-                <ul>
+              {items.map(((item: ISidebarItem, index: number) => (
+                <ul key={index}>
                   <SidebarItem
                     title={item.title}
                     badgeType={item.badge?.type}
@@ -43,7 +43,7 @@ const Sidebar = () => {
                     icon={item.icon}
                     isParent={item.isParent}></SidebarItem>
                 </ul>
-              ))}
+              )))}
             </div>
           ),
         )}

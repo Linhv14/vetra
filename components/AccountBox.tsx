@@ -12,6 +12,7 @@ const AccountBox = () => {
   console.log('account state', isAccountOpen)
   const accountRef = useRef<HTMLDivElement>(null)
   const actionRef = useRef<HTMLUListElement>(null)
+
   useEffect(() => {
     console.log('effect')
     const handleClick = (e: MouseEvent) => {
@@ -28,7 +29,7 @@ const AccountBox = () => {
     return () => {
       document.removeEventListener('click', handleClick)
     }
-  }, [])
+  }, [isAccountOpen])
 
   return (
     <div
