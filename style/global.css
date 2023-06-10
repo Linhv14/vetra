@@ -97,11 +97,11 @@ body {
   margin-top: 4px;
 }
 
-.sidebar-item.active>a {
+.sidebar-item.active > a {
   background-color: var(--light-primary);
 }
 
-.sidebar-item.active>* {
+.sidebar-item.active > * {
   color: var(--primary);
 }
 
@@ -120,7 +120,7 @@ body {
 
 .account.show .account-action {
   display: block;
-  animation: fadeDown 0.3s ease
+  animation: fadeDown 0.3s ease;
 }
 
 .overlay {

@@ -107,15 +107,3 @@ export const sidebar: Sidebar = {
     },
   ],
 }
-// {Object.entries(sidebar).map(([key, items]: [string, ISidebarItem[]]) => (
-//   <div key={key}>
-//     <span className="block text-light-gray text-sm py-5 font-light">{key}</span>
-//     {items.map((item: ISidebarItem) => (
-//       <ul>
-//         <SidebarItem
-//           title={item.title} badgeType={item.badge?.type} badgeContent={item.badge?.content} icon={item.icon} isParent={item.isParent}>
-//         </SidebarItem>
-//       </ul>
-//     ))}
-//   </div>
-// ))}

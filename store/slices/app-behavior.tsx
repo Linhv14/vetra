@@ -48,7 +48,10 @@ const appBehaviorSlice = createSlice({
         isCartOpen: !state.isCartOpen,
       }
     },
-    toggleAccountLayout: (state, action: PayloadAction<boolean | undefined>) => {
+    toggleAccountLayout: (
+      state,
+      action: PayloadAction<boolean | undefined>,
+    ) => {
       return {
         ...initialState,
         isAccountOpen: action.payload ?? !state.isAccountOpen,
