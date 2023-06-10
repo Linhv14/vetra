@@ -70,22 +70,57 @@ body {
 }
 
 .vetra {
-  position: absolute;
   width: calc(100% + var(--notification-width));
   min-height: 100vh;
-  overflow: hidden;
   transition: all 0.35s ease;
 }
 
+.vetra.move {
+  transform: translateX(calc(-1 * var(--notification-width)));
+}
+
 .sidebar {
-  position: absolute;
-  left: 0;
-  width: var(--sidebar-width);
-  height: 100%;
-  padding: 0 0 30px var(--padding);
-  background-color: var(--bg);
   transition: all 0.3s linear;
   z-index: 999;
+}
+
+.sidebar.show {
+  background-color: var(--white);
+  transform: translateX(0);
+}
+
+.sidebar.show .close-sidebar {
+  display: block;
+}
+
+.sidebar-item:not(:last-child) {
+  margin-top: 4px;
+}
+
+.sidebar-item.active>a {
+  background-color: var(--light-primary);
+}
+
+.sidebar-item.active>* {
+  color: var(--primary);
+}
+
+.sidebar-item:hover .bi:first-child {
+  transform: scale(1.15);
+}
+
+.sidebar-item a:hover .bi-arrow-right {
+  color: var(--primary);
+  transform: translateX(8px);
+}
+
+.account-action {
+  box-shadow: 1px -1px 20px -2px var(--light-gray);
+}
+
+.account.show .account-action {
+  display: block;
+  animation: fadeDown 0.3s ease
 }
 
 .overlay {
@@ -96,22 +131,115 @@ body {
   z-index: -999;
 }
 
-.container .main {
+.content {
+  position: absolute;
+  inset: 0 var(--notification-width) 0 var(--sidebar-width);
+  transition: all 0.3s linear;
+  overflow-y: scroll;
+}
+
+.content .main {
   position: relative;
 }
 
-.container .main .header,
-.container .main .header-mobile {
+.content .main .header,
+.content .main .header-mobile {
   display: flex;
   height: var(--header-height);
   align-items: center;
   padding: 0 var(--padding);
 }
 
-.container .main .header-mobile {
+.content .main .header-mobile {
   position: absolute;
   bottom: 100%;
   width: 100%;
   justify-content: flex-end;
   transition: all 0.25s linear;
+}
+
+.container {
+  position: absolute;
+  inset: 0 var(--notification-width) 0 var(--sidebar-width);
+  transition: all 0.3s linear;
+  overflow-y: scroll;
+}
+
+#notification,
+#setting {
+  position: absolute;
+  right: 0;
+  flex-direction: column;
+  width: var(--notification-width);
+  height: 100%;
+  transition: all 0.3s linear;
+  visibility: hidden;
+}
+
+/* 
+Scroll
+
+*/
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 0px;
+}
+
+.scrollable.scroll-visible::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable:hover::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.scrollable:hover::-webkit-scrollbar-thumb {
+  background-color: var(--normal-primary);
+}
+
+/* Animation */
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeToRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatFromRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
 }

@@ -1,260 +1,229 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
+import SidebarItem from './SidebarItem'
+import AccountBox from './AccountBox'
+
 const Sidebar = () => {
+
   return (
-    <aside className="sidebar reverse">
-      <div className="logo-box flex-vertical">
-        <a
-          href="#"
-          className="logo flex-vertical">
+    <aside className="sidebar pl-c-22 pb-c-30 w-sidebar h-[100%] left-0 absolute bg-milk z-50 reverse">
+      <div className="pr-c-15 flex items-center">
+        <a href="#" className="flex items-center h-24 w-[35%]">
           <Image
-            className="image"
+            className="image w-full"
             src="/assets/logo.svg"
-            width={200}
+            width={100}
             height={100}
             alt="Vetra logo"
+            priority
           />
         </a>
-        <div className="close-sidebar">
+        <div className="p-2 text-2xl hidden cursor-pointer ml-auto hover:text-primary">
           <i className="bi bi-x"></i>
         </div>
       </div>
-      <div className="sidebar-box scrollable scroll-visible">
-        <div className="account rounded bg-white flex-vertical">
-          <div className="account-image circle">
-            <Image
-              className="image"
-              src="/assets/users/avatar.jpg"
-              width={40}
-              height={40}
-              alt="avatar"
-            />
-          </div>
-          <div className="account-infor">
-            <h4 className="name">Van Linh</h4>
-            <span className="role">Sales Manager</span>
-          </div>
-          <ul className="account-action bg-white rounded">
-            <li className="account-action-item">
-              <a href="#">
-                <i className="bi bi-person"></i>
-                Profile
-              </a>
-            </li>
-            <li className="account-action-item">
-              <a href="#">
-                <i className="bi bi-envelope"></i>
-                Inbox
-              </a>
-            </li>
-            <li className="account-action-item setting">
-              <a href="#">
-                <i className="bi bi-gear"></i>
-                Setting
-              </a>
-            </li>
-            <li className="account-action-item">
-              <a href="#">
-                <i className="bi bi-box-arrow-right"></i>
-                Logout
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="sidebar-group">
-          <span className="sidebar-title">E-Commerce</span>
-          <ul className="sidebar-list">
+
+      <div className="sidebar-box pr-c-15 pb-c-45 h-[100%] mr-1 scrollable scroll-visible">
+        <AccountBox />
+        <div>
+          <span className="block text-light-gray text-sm py-5 font-light">E-Commerce</span>
+          <ul>
             <li className="sidebar-item active">
-              <a href="#">
-                <i className="bi bi-bar-chart"></i>
-                <span>Dashboard</span>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-bar-chart text-2xl transition-all duration-75"></i>
+                <span className="px-3">Dashboard</span>
               </a>
             </li>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-receipt"></i>
-                <span>Orders</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-receipt text-2xl transition-all duration-75"></i>
+                <span className="px-3">Orders</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
               <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">List</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">List</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Detail</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Detail</a>
                 </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-truck"></i>
-                <span>Products</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-truck text-2xl transition-all duration-75"></i>
+                <span className="px-3">Products</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">List View</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">List View</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Grid View</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Grid View</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Product Detail</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Product Detail</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Shopping Cart</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Shopping Cart</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Checkout</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Checkout</a>
                 </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-wallet"></i>
-                <span>Buyer</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-wallet text-2xl transition-all duration-75"></i>
+                <span className="px-3">Buyer</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Dashboard</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Dashboard</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Orders</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Orders</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Addresses</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Addresses</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Wishlist</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Wishlist</a>
                 </li>
               </ul>
             </li>
             <li className="sidebar-item">
-              <a href="#">
-                <i className="bi bi-person-badge"></i>
-                <span>Customer</span>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-person-badge text-2xl transition-all duration-75"></i>
+                <span className="px-3">Customer</span>
               </a>
             </li>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-receipt-cutoff"></i>
-                <span>Invoices</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-receipt-cutoff text-2xl transition-all duration-75"></i>
+                <span className="px-3">Invoices</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">List</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">List</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Detail</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Detail</a>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
-        <div className="sidebar-group">
-          <span className="sidebar-title">Apps</span>
-          <ul className="sidebar-list">
-            <li className="sidebar-item">
-              <a href="#">
-                <i className="bi bi-chat-square"></i>
-                <span>Chats</span>
-                <span className="sidebar-badge badge flex-center bg-success count circle">
+        <div>
+          <span className="block text-light-gray text-sm py-5 font-light">Apps</span>
+          <ul>
+            <SidebarItem title="Chat" badgeNumber badgeNumberTitle="15">
+              <i className="bi bi-chat-square text-2xl transition-all duration-75"></i>
+            </SidebarItem>
+            {/* <li className="sidebar-item">
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-chat-square text-2xl transition-all duration-75"></i>
+                <span className="px-3">Chats</span>
+                <span className="flex ml-auto items-center justify-center bg-success rounded-[50%] w-c-30 h-c-30 text-center text-white text-sm">
                   15
                 </span>
               </a>
-            </li>
+            </li> */}
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-envelope"></i>
-                <span>Email</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-envelope text-2xl transition-all duration-75"></i>
+                <span className="px-3">Email</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Inbox</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Inbox</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Detail</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Detail</a>
                 </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-check-circle"></i>
-                <span>Todo App</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-check-circle text-2xl transition-all duration-75"></i>
+                <span className="px-3">Todo App</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">List</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">List</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Detail</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Detail</a>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
-        <div className="sidebar-group">
-          <span className="sidebar-title">Pages</span>
-          <ul className="sidebar-list">
+        <div>
+          <span className="block text-light-gray text-sm py-5 font-light">Pages</span>
+          <ul>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-person"></i>
-                <span>Profile</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-person text-2xl transition-all duration-75"></i>
+                <span className="px-3">Profile</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Post</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Post</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Connections</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Connections</a>
                 </li>
               </ul>
             </li>
             <li className="sidebar-item parent">
-              <a href="#">
-                <i className="bi bi-person-circle"></i>
-                <span>Users</span>
-                <i className="bi bi-arrow-right"></i>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-person-circle text-2xl transition-all duration-75"></i>
+                <span className="px-3">Users</span>
+                <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
               </a>
-              <ul className="sidebar-dropdown">
-                <li className="sidebar-dropdown-item">
-                  <a href="#">List View</a>
+              <ul className="sidebar-dropdown hidden">
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">List View</a>
                 </li>
-                <li className="sidebar-dropdown-item">
-                  <a href="#">Grid View</a>
+                <li className="pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+                  <a href="#" className="flex p-c-10 leading-8 hover:text-primary">Grid View</a>
                 </li>
               </ul>
             </li>
             <li className="sidebar-item">
-              <a href="#">
-                <i className="bi bi-gear"></i>
-                <span>Settings</span>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-gear text-2xl transition-all duration-75"></i>
+                <span className="px-3">Settings</span>
               </a>
             </li>
             <li className="sidebar-item">
-              <a href="#">
-                <i className="bi bi-postcard"></i>
-                <span>Pricing Table</span>
-                <span className="sidebar-badge bg-success text rounded">
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-postcard text-2xl transition-all duration-75"></i>
+                <span className="px-3">Pricing Table</span>
+                <span className="ml-auto bg-success rounded-md p-1 text-white text-sm">
                   New
                 </span>
               </a>
             </li>
             <li className="sidebar-item">
-              <a href="#">
-                <i className="bi bi-search"></i>
-                <span>Search Page</span>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-search text-2xl transition-all duration-75"></i>
+                <span className="px-3">Search Page</span>
               </a>
             </li>
             <li className="sidebar-item">
-              <a href="#">
-                <i className="bi bi-question-circle"></i>
-                <span>FAQ</span>
+              <a href="#" className="flex items-center p-c-10 rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+                <i className="bi bi-question-circle text-2xl transition-all duration-75"></i>
+                <span className="px-3">FAQ</span>
               </a>
             </li>
           </ul>

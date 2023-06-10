@@ -1,10 +1,13 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {appBehavior, toggleNotification} from '@/store/slices/app-behavior'
 const Notification = () => {
+  const {notification} = useSelector((state: appBehavior) => state.appBehavior)
+  const dispatch = useDispatch()
   return (
     <div
       id="notification"
-      className="flex bg-white">
+      className={`flex bg-white ${notification && 'show'}`}>
       <div className="header flex-vertical">
         <h2 className="title">Notifications</h2>
         <div className="close">
@@ -193,7 +196,7 @@ const Notification = () => {
                   <div className="note-box">
                     <div className="notify-content">
                       <h4 className="notify-title">
-                        This month{'\''}s report will be prepared.
+                        This month{"'"}s report will be prepared.
                       </h4>
                       <div className="time flex-vertical">
                         <span className="time-icon">
