@@ -113,6 +113,13 @@ body {
   color: var(--primary);
   transform: translateX(8px);
 }
+.dropdown-item.active {
+  @apply bg-light-primary;
+}
+
+.dropdown-item.active > a {
+  @apply text-primary;
+}
 
 .account-action {
   box-shadow: 1px -1px 20px -2px var(--light-gray);

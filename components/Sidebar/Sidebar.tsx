@@ -4,7 +4,8 @@ import React from 'react'
 import Image from 'next/image'
 import SidebarItem from './SidebarItem'
 import AccountBox from '../AccountBox'
-import {sidebar, ISidebarItem} from '@/data/static'
+import { sidebar, ISidebarItem } from '@/data/static'
+import DropdownItem from './DropdownItem'
 const Sidebar = () => {
   return (
     <aside className="sidebar pl-c-22 pb-c-30 w-sidebar h-[100%] left-0 absolute bg-milk z-50 reverse">
@@ -34,16 +35,22 @@ const Sidebar = () => {
               <span className="block text-light-gray text-sm py-5 font-light">
                 {key}
               </span>
-              {items.map(((item: ISidebarItem, index: number) => (
-                <ul key={index}>
-                  <SidebarItem
-                    title={item.title}
-                    badgeType={item.badge?.type}
-                    badgeContent={item.badge?.content}
-                    icon={item.icon}
-                    isParent={item.isParent}></SidebarItem>
-                </ul>
-              )))}
+              <ul>
+                {items.map(((item: ISidebarItem, index: number) => {
+                  return (
+                    <SidebarItem
+                      key={index}
+                      title={item.title}
+                      badgeType={item.badge?.type}
+                      badgeContent={item.badge?.content}
+                      icon={item.icon}
+                      active={item.active}
+                      isParent={item.isParent}>
+                      {item.dropdown && item.dropdown.map((dropdownItem, index) => <DropdownItem title={dropdownItem} key={index}/>)}
+                    </SidebarItem>
+                  )
+                }))}
+              </ul>
             </div>
           ),
         )}

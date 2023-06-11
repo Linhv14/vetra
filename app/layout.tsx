@@ -4,8 +4,7 @@ import '@/style/global.css'
 import {ReactNode} from 'react'
 import {Sidebar} from '@/components/Sidebar'
 import Vetra from '@/components/Vetra'
-import {Provider} from 'react-redux'
-import store from '@/store'
+import { Providers } from './providers'
 
 export const metadata = {
   title: 'Vetra',
@@ -24,11 +23,11 @@ const RootLayout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
         />
       </head>
       <body>
-        <Provider store={store}>
+        <Providers>
           <Vetra>
             <Sidebar />
           </Vetra>
-        </Provider>
+        </Providers>
       </body>
     </html>
   )
