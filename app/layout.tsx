@@ -4,11 +4,6 @@ import {Sidebar} from '@/components/Sidebar'
 import Vetra from '@/components/Vetra'
 import {Providers} from './providers'
 
-export const metadata = {
-  title: 'Vetra',
-  description: 'E-commerce Dashboard App',
-}
-
 type LayoutProps = {children: ReactNode}
 
 const RootLayout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
