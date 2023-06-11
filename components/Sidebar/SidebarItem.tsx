@@ -1,5 +1,4 @@
-
-import React, { ReactNode, useState } from 'react'
+import React, {ReactNode, useState} from 'react'
 
 type SidebarItemProps = {
   children?: ReactNode
@@ -13,11 +12,11 @@ type SidebarItemProps = {
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
   children,
-  title = "",
+  title = '',
   active = false,
   badgeType = undefined,
-  badgeContent = "",
-  icon = "bi",
+  badgeContent = '',
+  icon = 'bi',
   isParent = false,
 }: SidebarItemProps) => {
   const [state, setState] = useState(false)
@@ -28,7 +27,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     badgeStyle =
       'flex ml-auto items-center justify-center bg-success rounded-[50%] w-c-30 h-c-30 text-center text-white text-sm'
   }
-  
+
   return (
     <li className={`${active && 'active'} sidebar-item`}>
       <a
@@ -40,13 +39,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           <i className="bi bi-arrow-right transition-all duration-75 text-light-gray"></i>
         )}
         {badgeType && <span className={badgeStyle}>{badgeContent}</span>}
-
       </a>
-      {isParent && (
-        <ul className="sidebar-dropdown">
-          {children}
-        </ul>
-      )}
+      {isParent && <ul className="sidebar-dropdown hidden">{children}</ul>}
     </li>
   )
 }

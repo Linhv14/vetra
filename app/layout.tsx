@@ -4,7 +4,7 @@ import '@/style/global.css'
 import {ReactNode} from 'react'
 import {Sidebar} from '@/components/Sidebar'
 import Vetra from '@/components/Vetra'
-import { Providers } from './providers'
+import {Providers} from './providers'
 
 export const metadata = {
   title: 'Vetra',

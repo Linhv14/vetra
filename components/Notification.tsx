@@ -1,8 +1,13 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {appBehavior, toggleNotificationLayout} from '@/store/slices/app-behavior'
+import {
+  appBehavior,
+  toggleNotificationLayout,
+} from '@/store/slices/app-behavior'
 const Notification = () => {
-  const {isNotificationOpen} = useSelector((state: appBehavior) => state.appBehavior)
+  const {isNotificationOpen} = useSelector(
+    (state: appBehavior) => state.appBehavior,
+  )
   const dispatch = useDispatch()
   return (
     <div

@@ -1,3 +1,5 @@
+'use client'
+
 import React, {useEffect, useRef} from 'react'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
@@ -8,28 +10,26 @@ const AccountBox = () => {
     (state: appBehavior) => state.appBehavior.isAccountOpen,
   )
   const dispatch = useDispatch()
-  console.log('re-render')
   console.log('account state', isAccountOpen)
   const accountRef = useRef<HTMLDivElement>(null)
   const actionRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
-    console.log('effect')
     const handleClick = (e: MouseEvent) => {
       if (accountRef.current?.contains(e.target as Node)) {
         if (actionRef.current?.contains(e.target as Node)) return
         dispatch(toggleAccountLayout())
       } else {
-        console.log('out')
         dispatch(toggleAccountLayout(false))
       }
     }
     document.addEventListener('click', handleClick)
 
     return () => {
+      console.log('clean')
       document.removeEventListener('click', handleClick)
     }
-  }, [isAccountOpen])
+  }, [dispatch])
 
   return (
     <div

@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import SidebarItem from './SidebarItem'
 import AccountBox from '../AccountBox'
-import { sidebar, ISidebarItem } from '@/data/static'
+import {sidebar, ISidebarItem} from '@/data/static'
 import DropdownItem from './DropdownItem'
 const Sidebar = () => {
   return (
@@ -36,7 +36,7 @@ const Sidebar = () => {
                 {key}
               </span>
               <ul>
-                {items.map(((item: ISidebarItem, index: number) => {
+                {items.map((item: ISidebarItem, index: number) => {
                   return (
                     <SidebarItem
                       key={index}
@@ -46,10 +46,16 @@ const Sidebar = () => {
                       icon={item.icon}
                       active={item.active}
                       isParent={item.isParent}>
-                      {item.dropdown && item.dropdown.map((dropdownItem, index) => <DropdownItem title={dropdownItem} key={index}/>)}
+                      {item.dropdown &&
+                        item.dropdown.map((dropdownItem, index) => (
+                          <DropdownItem
+                            title={dropdownItem}
+                            key={index}
+                          />
+                        ))}
                     </SidebarItem>
                   )
-                }))}
+                })}
               </ul>
             </div>
           ),
