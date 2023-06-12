@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+/* li a {
+  border: 1px solid red;
+} */
+
 *::selection {
   background-color: var(--light-primary);
 }
@@ -93,7 +97,7 @@ body {
   display: block;
 }
 
-.sidebar-item:not(:last-child) {
+.sidebar-item:not(:first-child) {
   margin-top: 4px;
 }
 
@@ -102,7 +106,7 @@ body {
 }
 
 .sidebar-item.active > * {
-  color: var(--primary);
+  @apply text-primary;
 }
 
 .sidebar-item:hover .bi:first-child {
@@ -110,15 +114,24 @@ body {
 }
 
 .sidebar-item a:hover .bi-arrow-right {
-  color: var(--primary);
-  transform: translateX(8px);
+  @apply text-primary;
 }
+
+.sidebar-item.active a .bi-arrow-right {
+  @apply text-primary rotate-90;
+}
+
 .dropdown-item.active {
   @apply bg-light-primary;
 }
 
 .dropdown-item.active > a {
   @apply text-primary;
+}
+
+.sidebar-dropdown {
+  overflow: hidden;
+  transition: height 0.25s ease;
 }
 
 .account-action {

@@ -5,7 +5,6 @@ type VetraProps = {
 }
 
 const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
-
   return <main className="vetra">{children}</main>
 }
 

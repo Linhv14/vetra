@@ -8,13 +8,6 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        'c-10': '10px',
-        'c-15': '15px',
-        'c-22': '22px',
-        'c-30': '30px',
-        'c-34': '34px',
-        'c-45': '45px',
-        'c-50': '50px',
         sidebar: '320px',
         notification: '420px',
         header: '100px',

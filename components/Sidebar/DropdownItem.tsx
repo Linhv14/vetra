@@ -1,11 +1,31 @@
 import React from 'react'
+import clsx from 'clsx'
 
-const DropdownItem = ({title}: {title: string}) => {
+type DropdownItemProps = {
+  title: string
+  active: boolean
+  onItemClick?: () => void
+}
+
+const DropdownItem: React.FC<DropdownItemProps> = ({
+  title,
+  active,
+  onItemClick,
+}) => {
+  const dropdownItemClass = clsx(
+    'dropdown-item pl-[34px] mt-1 rounded-lg hover:bg-light-primary',
+    {
+      ['active']: active,
+    },
+  )
+
   return (
-    <li className="dropdown-item pl-c-34 mt-1 rounded-lg hover:bg-light-primary">
+    <li
+      className={dropdownItemClass}
+      onClick={onItemClick}>
       <a
         href="#"
-        className="flex p-c-10 leading-8 hover:text-primary">
+        className="flex p-[10px] leading-8 hover:text-primary">
         {title}
       </a>
     </li>
