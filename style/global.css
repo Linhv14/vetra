@@ -109,8 +109,12 @@ body {
   @apply text-primary;
 }
 
-.sidebar-item:hover .bi:first-child {
+.sidebar-item a:hover .bi:first-child {
   transform: scale(1.15);
+}
+
+.sidebar-item.active a:hover .bi:first-child {
+  transform: scale(1);
 }
 
 .sidebar-item a:hover .bi-arrow-right {
