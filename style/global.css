@@ -75,17 +75,10 @@ body {
 
 .vetra {
   width: calc(100% + var(--notification-width));
-  min-height: 100vh;
-  transition: all 0.35s ease;
 }
 
 .vetra.move {
   transform: translateX(calc(-1 * var(--notification-width)));
-}
-
-.sidebar {
-  transition: all 0.3s linear;
-  z-index: 999;
 }
 
 .sidebar.show {
@@ -133,71 +126,13 @@ body {
   @apply text-primary;
 }
 
-.sidebar-dropdown {
-  overflow: hidden;
-  transition: height 0.25s ease;
-}
-
-.account-action {
+.shadow-c-primary {
   box-shadow: 1px -1px 20px -2px var(--light-gray);
 }
 
 .account.show .account-action {
   display: block;
   animation: fadeDown 0.3s ease;
-}
-
-.overlay {
-  opacity: 0;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: -999;
-}
-
-.content {
-  position: absolute;
-  inset: 0 var(--notification-width) 0 var(--sidebar-width);
-  transition: all 0.3s linear;
-  overflow-y: scroll;
-}
-
-.content .main {
-  position: relative;
-}
-
-.content .main .header,
-.content .main .header-mobile {
-  display: flex;
-  height: var(--header-height);
-  align-items: center;
-  padding: 0 var(--padding);
-}
-
-.content .main .header-mobile {
-  position: absolute;
-  bottom: 100%;
-  width: 100%;
-  justify-content: flex-end;
-  transition: all 0.25s linear;
-}
-
-.container {
-  position: absolute;
-  inset: 0 var(--notification-width) 0 var(--sidebar-width);
-  transition: all 0.3s linear;
-  overflow-y: scroll;
-}
-
-#notification,
-#setting {
-  position: absolute;
-  right: 0;
-  flex-direction: column;
-  width: var(--notification-width);
-  height: 100%;
-  transition: all 0.3s linear;
-  visibility: hidden;
 }
 
 /* 

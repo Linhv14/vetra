@@ -25,7 +25,7 @@ const Sidebar: React.FC = () => {
 
   console.log('[Sidebar]: Re-render')
   return (
-    <aside className="sidebar pl-[22px] pb-[30px] w-sidebar h-[100%] left-0 absolute bg-milk z-50 overflow-hidden">
+    <aside className="sidebar pl-[22px] pb-[30px] w-sidebar h-full left-0 absolute bg-milk overflow-hidden transition-all duration-150 ease-linear z-50">
       <div className="pr-[15px] flex items-center">
         <a
           href="#"
@@ -44,8 +44,8 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
 
-      <div className="overflow-hidden h-[100%] pb-[30%]">
-        <div className="sidebar-box pr-[15px] h-[100%] mr-1 scrollable scroll-visible">
+      <div className="overflow-hidden h-full pb-[30%]">
+        <div className="sidebar-box pr-[15px] h-full mr-1 scrollable scroll-visible">
           <AccountBox />
 
           {/* Render Sidebar UI with static data */}

@@ -11,7 +11,7 @@ module.exports = {
         sidebar: '320px',
         notification: '420px',
         header: '100px',
-        cart: '300px',
+        cart: '340px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -24,10 +24,10 @@ module.exports = {
       colors: {
         primary: '#ff6e40',
         milk: '#f5f4fe',
-        success: ' #05b171',
+        success: '#05b171',
         warning: '#faae42',
         error: '#ea4444',
-        'dark-primary': 'eb5c30',
+        'dark-primary': '#eb5c30',
         'light-primary': 'rgba(255, 110, 64, .15)',
         'normal-primary': 'rgba(255, 110, 64, .45)',
         'dark-success': '#049660',

@@ -61,7 +61,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       </a>
       {isParent && (
         <ul
-          className={`sidebar-dropdown`}
+          className="overflow-y-hidden transition-all duration-150 ease-linear"
           style={
             activeDropdown
               ? {height: dropdownRef.current?.scrollHeight}

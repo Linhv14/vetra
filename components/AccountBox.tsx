@@ -61,7 +61,7 @@ const AccountBox = () => {
         <span className="text-light-gray text-sm">Sales Manager</span>
       </div>
       <ul
-        className="account-action absolute w-[60%] left-20 py-[10px] top-[80%] text-left bg-white rounded-lg z-10 transition-all duration-75 hidden"
+        className="account-action shadow-c-primary absolute w-[60%] left-20 py-[10px] top-[80%] text-left bg-white rounded-lg z-10 transition-all duration-75 hidden"
         ref={actionRef}>
         <li>
           <a

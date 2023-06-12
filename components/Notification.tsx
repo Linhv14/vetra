@@ -1,18 +1,8 @@
-import React, {useState} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import {
-  appBehavior,
-  toggleNotificationLayout,
-} from '@/store/slices/app-behavior'
 const Notification = () => {
-  const {isNotificationOpen} = useSelector(
-    (state: appBehavior) => state.appBehavior,
-  )
-  const dispatch = useDispatch()
   return (
     <div
       id="notification"
-      className={`flex bg-white ${isNotificationOpen && 'show'}`}>
+      className={`flex bg-white`}>
       <div className="header flex-vertical">
         <h2 className="title">Notifications</h2>
         <div className="close">
