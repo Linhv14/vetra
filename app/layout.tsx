@@ -1,9 +1,9 @@
 import '@/style/global.css'
 import {ReactNode} from 'react'
 import {Sidebar} from '@/components/Sidebar'
+import {Header} from '@/components/Header'
 import Vetra from '@/components/Vetra'
 import {Providers} from './providers'
-import Header from '@/components/Header'
 import Notification from '@/components/Notification'
 
 type LayoutProps = {children: ReactNode}
@@ -21,9 +21,10 @@ const RootLayout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
         <Providers>
           <Vetra>
             <Sidebar />
-            <section className="absolute overflow-y-scroll inset-0 left-sidebar transition-all duration-75 ease-linear">
+            <section className="inset-0  absolute overflow-y-scroll xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear">
               <div className="relative">
                 <Header />
+                {children}
               </div>
             </section>
             {/* <Notification /> */}

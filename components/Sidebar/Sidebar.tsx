@@ -25,11 +25,11 @@ const Sidebar: React.FC = () => {
 
   console.log('[Sidebar]: Re-render')
   return (
-    <aside className="sidebar pl-[22px] pb-[30px] w-sidebar h-full left-0 absolute bg-milk overflow-hidden transition-all duration-150 ease-linear z-50">
+    <aside className="sidebar w-full -left-full sm:w-sidebar sm:-left-sidebar xl:left-0 pl-[22px] pb-[30px] h-full absolute bg-milk overflow-hidden transition-all duration-150 ease-linear z-50">
       <div className="pr-[15px] flex items-center">
         <a
           href="#"
-          className="flex items-center h-24 w-[35%]">
+          className="flex items-center h-24 w-[150px] shrink">
           <Image
             className="image w-full"
             src="/assets/logo.svg"
@@ -39,12 +39,12 @@ const Sidebar: React.FC = () => {
             priority
           />
         </a>
-        <div className="p-2 text-2xl hidden cursor-pointer ml-auto hover:text-primary">
+        <div className="block xl:hidden p-2 text-2xl cursor-pointer ml-auto hover:text-primary">
           <i className="bi bi-x"></i>
         </div>
       </div>
 
-      <div className="overflow-hidden h-full pb-[30%]">
+      <div className="overflow-hidden h-full pb-[15%] lg:pb-[30%]">
         <div className="sidebar-box pr-[15px] h-full mr-1 scrollable scroll-visible">
           <AccountBox />
 

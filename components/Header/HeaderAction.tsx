@@ -1,45 +1,23 @@
-'use client'
-
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
 
-const Header = () => {
+const HeaderAction = () => {
   return (
-    <nav className="flex h-header items-center py-0 px-[22px] bg-white">
-      <div className="hidden text-3xl cursor-pointer mt-[2px]">
-        <i className="bi bi-list"></i>
-      </div>
-      <div>
-        <h2 className="py-0 px-[10px] font-medium">Dashboard</h2>
-      </div>
-      <div className="flex items-center rounded-lg my-0 mx-[50px] grow bg-white">
-        <label
-          htmlFor="search"
-          className="py-0 px-[14px]">
-          <i className="bi bi-search"></i>
-        </label>
-        <input
-          id="search"
-          type="text"
-          name="search"
-          placeholder="Search..."
-          className="w-full px-[18px] py-[14px] outline-none border-none text-base"
-        />
-      </div>
-      <ul className="relative flex items-center">
-        <li className="hidden relative cursor-pointer text-2xl my-0 mx-5">
+    <>
+      <ul className="relative flex items-center ml-auto">
+        <li className="block lg:hidden relative cursor-pointer text-2xl my-0 mx-5">
           <i className="bi bi-search"></i>
         </li>
-        <li className="hidden relative cursor-pointer text-2xl my-0 mx-5">
+        <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5">
           <i className="bi bi-three-dots"></i>
         </li>
-        <li className="inline-block relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
+        <li className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
           <i className="bi bi-bell"></i>
           <span className="absolute top-[-26%] right-[-50%] text-[10px] w-6 h-6 text-white flex items-center justify-center rounded-full bg-error">
             10
           </span>
         </li>
-        <li className="inline-block relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
+        <li className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
           <i className="bi bi-cart"></i>
           <span className="absolute top-[-26%] right-[-50%] text-[10px] w-6 h-6 text-white flex items-center justify-center rounded-full bg-error">
             5
@@ -200,13 +178,13 @@ const Header = () => {
         </li>
       </ul>
       <a
-        className="text-white bg-primary text-sm gap-2 min-w-[150px] ml-3 py-3 px-4 flex items-center justify-center rounded-lg hover:bg-dark-primary"
+        className="hidden sm:flex text-white bg-primary text-sm gap-2 min-w-[150px] ml-3 py-3 px-4 items-center justify-center rounded-lg hover:bg-dark-primary"
         href="#">
         <i className="bi bi-plus-circle"></i>
         <span>Add Product</span>
       </a>
-    </nav>
+    </>
   )
 }
 
-export default Header
+export default HeaderAction
