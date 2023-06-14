@@ -1,9 +1,48 @@
-import React from 'react'
+import React, {memo, useEffect, useRef} from 'react'
 import Image from 'next/image'
+import HeaderSearch from './HeaderSearch'
+import {useDispatch, useSelector} from 'react-redux'
+import {appBehavior, toggleCartLayout} from '@/store/slices/app-behavior'
+import clsx from 'clsx'
 
 const HeaderAction = () => {
+  console.log('[Header-Action]: Re-render')
+  const isCartOpen = useSelector(
+    (state: appBehavior) => state.appBehavior.isCartOpen,
+  )
+  console.log('[Header-Action]: ', isCartOpen)
+  const dispatch = useDispatch()
+
+  const cartClass = clsx(
+    'absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white',
+    {
+      ['hidden']: !isCartOpen,
+    },
+  )
+  const cartBtnRef = useRef<HTMLLIElement>(null)
+  const cartBoxRef = useRef<HTMLLIElement>(null)
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      console.log('[Header-Action]: EventListener')
+      if (cartBtnRef.current?.contains(e.target as Node)) {
+        if (cartBoxRef.current?.contains(e.target as Node)) return
+        dispatch(toggleCartLayout())
+      } else {
+        dispatch(toggleCartLayout(false))
+      }
+    }
+    document.addEventListener('click', handleClick)
+
+    return () => {
+      console.log('clean')
+      document.removeEventListener('click', handleClick)
+    }
+  }, [])
+
   return (
     <>
+      <HeaderSearch />
       <ul className="relative flex items-center ml-auto">
         <li className="block lg:hidden relative cursor-pointer text-2xl my-0 mx-5">
           <i className="bi bi-search"></i>
@@ -17,13 +56,17 @@ const HeaderAction = () => {
             10
           </span>
         </li>
-        <li className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
+        <li
+          className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary"
+          ref={cartBtnRef}>
           <i className="bi bi-cart"></i>
           <span className="absolute top-[-26%] right-[-50%] text-[10px] w-6 h-6 text-white flex items-center justify-center rounded-full bg-error">
             5
           </span>
         </li>
-        <li className="absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white hidden">
+        <li
+          className={cartClass}
+          ref={cartBoxRef}>
           <div className="border-b border-solid border-light-border px-[15px] py-[10px] text-sm font-medium">
             Shopping Cart
           </div>
@@ -187,4 +230,4 @@ const HeaderAction = () => {
   )
 }
 
-export default HeaderAction
+export default memo(HeaderAction)

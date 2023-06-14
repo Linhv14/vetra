@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {memo} from 'react'
 
 const HeaderSearch = () => {
+  console.log('[Header-Search]: Re-render')
   return (
     <div className="hidden lg:flex items-center rounded-lg my-0 mx-[50px] grow bg-white">
       <label
@@ -19,4 +20,4 @@ const HeaderSearch = () => {
   )
 }
 
-export default HeaderSearch
+export default memo(HeaderSearch)

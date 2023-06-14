@@ -2,13 +2,14 @@
 
 import React, {useEffect, useRef, memo} from 'react'
 import Image from 'next/image'
-import {useDispatch, useSelector} from 'react-redux'
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {appBehavior, toggleAccountLayout} from '@/store/slices/app-behavior'
 import clsx from 'clsx'
 
 const AccountBox = () => {
   const isAccountOpen = useSelector(
     (state: appBehavior) => state.appBehavior.isAccountOpen,
+    shallowEqual,
   )
   const dispatch = useDispatch()
 
@@ -17,6 +18,7 @@ const AccountBox = () => {
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
+      console.log('[Account-Box]: EventListener')
       if (accountRef.current?.contains(e.target as Node)) {
         if (actionRef.current?.contains(e.target as Node)) return
         dispatch(toggleAccountLayout())
@@ -30,7 +32,7 @@ const AccountBox = () => {
       console.log('clean')
       document.removeEventListener('click', handleClick)
     }
-  }, [dispatch])
+  }, [])
 
   const classes = clsx(
     'account relative p-[15px] rounded-lg w-full cursor-pointer bg-white flex items-center',
@@ -46,7 +48,7 @@ const AccountBox = () => {
     <div
       className={classes}
       ref={accountRef}>
-      <div className="account-image w-[50px] h-[50px] rounded-[50%] overflow-hidden mr-[15px]">
+      <div className="w-[50px] h-[50px] rounded-[50%] overflow-hidden mr-[15px]">
         <Image
           className="image w-full"
           src="/assets/users/avatar.jpg"
@@ -56,7 +58,7 @@ const AccountBox = () => {
           priority
         />
       </div>
-      <div className="account-infor">
+      <div>
         <h4 className="text-primary font-semibold text-base">Van Linh</h4>
         <span className="text-light-gray text-sm">Sales Manager</span>
       </div>
@@ -79,7 +81,7 @@ const AccountBox = () => {
             Inbox
           </a>
         </li>
-        <li className="account-action-item setting">
+        <li>
           <a
             href="#"
             className="block text-sm px-5 py-[10px] hover:text-primary">

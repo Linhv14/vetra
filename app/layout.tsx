@@ -5,7 +5,7 @@ import {Header} from '@/components/Header'
 import Vetra from '@/components/Vetra'
 import {Providers} from './providers'
 import Notification from '@/components/Notification'
-
+import Head from 'next/head'
 type LayoutProps = {children: ReactNode}
 
 const RootLayout: React.FC<LayoutProps> = ({children}: LayoutProps) => {

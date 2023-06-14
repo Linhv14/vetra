@@ -6,5 +6,5 @@ const store = configureStore({
     appBehavior: appBehaviorReducer,
   },
 })
-
+export type StoreDispatch = typeof store.dispatch
 export default store
