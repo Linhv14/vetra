@@ -1,7 +1,7 @@
 import React, {memo} from 'react'
 
 const HeaderSearch = () => {
-  console.log('[Header-Search]: Re-render')
+  console.log('[Header-Search]: Render')
   return (
     <div className="hidden lg:flex items-center rounded-lg my-0 mx-[50px] grow bg-white">
       <label

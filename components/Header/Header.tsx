@@ -1,16 +1,12 @@
 'use client'
 
-import React, {memo} from 'react'
+import React from 'react'
 import HeaderAction from './HeaderAction'
-import {shallowEqual, useDispatch, useSelector} from 'react-redux'
-import {appBehavior, toggleSidebarLayout} from '@/store/slices/app-behavior'
+import {useDispatch} from 'react-redux'
+import {toggleSidebarLayout} from '@/store/slices/app-behavior'
 import {StoreDispatch} from '@/store'
 
 const Header: React.FC = () => {
-  const {isSidebarOpen} = useSelector(
-    (state: appBehavior) => state.appBehavior,
-    shallowEqual,
-  )
   const dispatch: StoreDispatch = useDispatch()
 
   const openSidebar = () => {
@@ -32,4 +28,4 @@ const Header: React.FC = () => {
   )
 }
 
-export default memo(Header)
+export default Header

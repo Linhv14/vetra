@@ -8,6 +8,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 /* li a {
@@ -128,11 +131,6 @@ body {
 
 .shadow-c-primary {
   box-shadow: 1px -1px 20px -2px var(--light-gray);
-}
-
-.account.show .account-action {
-  display: block;
-  animation: fadeDown 0.3s ease;
 }
 
 /* 

@@ -1,15 +1,21 @@
 'use client'
 
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Image from 'next/image'
 import SidebarItem from './SidebarItem'
-import AccountBox from '../AccountBox'
+import AccountBox from './Account/AccountBox'
 import {sidebar, ISidebarItem} from '@/data/static'
 import DropdownItem from './DropdownItem'
+import {useSelector} from 'react-redux'
+import {IAppBehavior} from '@/store/slices/app-behavior'
+import clsx from 'clsx'
 
 const Sidebar: React.FC = () => {
   const [activeItem, setActiveItem] = useState(1)
   const [activeDropdown, setActiveDropdown] = useState(0)
+  const isSidebarOpen = useSelector(
+    (state: IAppBehavior) => state.appBehavior.isSidebarOpen,
+  )
 
   const handleSetActiveItem = (id: number): void => {
     console.log('[Sidebar]: Set new active', id)
@@ -23,9 +29,30 @@ const Sidebar: React.FC = () => {
     setActiveDropdown((pre) => (pre === id ? 0 : id))
   }
 
-  console.log('[Sidebar]: Re-render')
+  useEffect(() => {
+    const desktopScreen = 1280
+    const handleResize = () => {
+      if (window.innerWidth < desktopScreen) {
+      }
+    }
+    document.addEventListener('resize', handleResize)
+    return () => {
+      console.log('[Sidebar]: Clean up resize event')
+      document.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  console.log('[Sidebar]: Render')
+
+  const sidebarClass = clsx(
+    'sidebar w-full -left-full sm:w-sidebar sm:-left-sidebar xl:left-0 pl-[22px] pb-[30px] h-full absolute bg-milk overflow-hidden transition-all duration-150 ease-linear z-50',
+    {
+      ['translate-x-sidebar bg-white']: isSidebarOpen,
+    },
+  )
+
   return (
-    <aside className="sidebar w-full -left-full sm:w-sidebar sm:-left-sidebar xl:left-0 pl-[22px] pb-[30px] h-full absolute bg-milk overflow-hidden transition-all duration-150 ease-linear z-50">
+    <aside className={sidebarClass}>
       <div className="pr-[15px] flex items-center">
         <a
           href="#"

@@ -36,14 +36,18 @@ const appBehaviorSlice = createSlice({
         isSettingOpen: !state.isSettingOpen,
       }
     },
-    toggleSidebarLayout: (state) => {
-      console.log('[Redux]: Sidebar State Change')
+    toggleSidebarLayout: (
+      state,
+      action: PayloadAction<boolean | undefined>,
+    ) => {
+      console.log('[Redux]: SidebarLayout State Change')
       return {
         ...initialState,
-        isSidebarOpen: state.isSidebarOpen,
+        isSidebarOpen: action.payload ?? !state.isSidebarOpen,
       }
     },
     toggleCartLayout: (state, action: PayloadAction<boolean | undefined>) => {
+      console.log('[Redux]: CartLayout State Change')
       return {
         ...state,
         isCartOpen: action.payload ?? !state.isCartOpen,
@@ -61,7 +65,7 @@ const appBehaviorSlice = createSlice({
   },
 })
 
-export interface appBehavior {
+export interface IAppBehavior {
   appBehavior: IAppBehaviorState
 }
 

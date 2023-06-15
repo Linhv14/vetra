@@ -19,17 +19,7 @@ const RootLayout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
       </head>
       <body>
         <Providers>
-          <Vetra>
-            <Sidebar />
-            <section className="inset-0  absolute overflow-y-scroll xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear">
-              <div className="relative">
-                <Header />
-                {children}
-              </div>
-            </section>
-            {/* <Notification /> */}
-            <div className="absolute -right-notification flex flex-col w-notification h-full invisible transition-all duration-150 ease-linear bg-blue-700"></div>
-          </Vetra>
+          <Vetra>{children}</Vetra>
         </Providers>
       </body>
     </html>
