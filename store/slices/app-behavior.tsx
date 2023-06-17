@@ -57,6 +57,7 @@ const appBehaviorSlice = createSlice({
       state,
       action: PayloadAction<boolean | undefined>,
     ) => {
+      console.log('[Redux]: Account State Change')
       return {
         ...state,
         isAccountOpen: action.payload ?? !state.isAccountOpen,

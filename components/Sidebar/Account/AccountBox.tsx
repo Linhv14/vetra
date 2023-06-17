@@ -1,16 +1,16 @@
 'use client'
 
-import React, {useRef} from 'react'
+import React, {useRef, memo} from 'react'
 import Image from 'next/image'
-import {useDispatch, useSelector} from 'react-redux'
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {IAppBehavior, toggleAccountLayout} from '@/store/slices/app-behavior'
 import AccountAction from './AccountAction'
-import clsx from 'clsx'
 
 const AccountBox = () => {
   const accountBoxRef = useRef<HTMLDivElement>(null)
   const {isAccountOpen, isSidebarOpen} = useSelector(
     (state: IAppBehavior) => state.appBehavior,
+    shallowEqual,
   )
   const dispatch = useDispatch()
 
@@ -20,7 +20,7 @@ const AccountBox = () => {
     }
   }
 
-  console.log('[Account-box]: Render')
+  console.log('[Sidebar->Account-Box]: Render')
 
   return (
     <div
@@ -48,4 +48,4 @@ const AccountBox = () => {
   )
 }
 
-export default AccountBox
+export default memo(AccountBox)

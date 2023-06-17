@@ -1,5 +1,5 @@
-const Customer = () => {
+const Customers = () => {
   return <div className="p-[22px]">Customer</div>
 }
 
-export default Customer
+export default Customers

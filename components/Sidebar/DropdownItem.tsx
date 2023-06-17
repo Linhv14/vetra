@@ -1,15 +1,18 @@
 import React from 'react'
 import clsx from 'clsx'
+import Link from 'next/link'
 
 type DropdownItemProps = {
   title: string
   active: boolean
+  link?: string
   onItemClick?: () => void
 }
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
   title,
   active,
+  link = '/',
   onItemClick,
 }) => {
   const dropdownItemClass = clsx(
@@ -23,11 +26,11 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     <li
       className={dropdownItemClass}
       onClick={onItemClick}>
-      <a
-        href="#"
+      <Link
+        href={link}
         className="flex p-[10px] leading-8 hover:text-primary">
         {title}
-      </a>
+      </Link>
     </li>
   )
 }

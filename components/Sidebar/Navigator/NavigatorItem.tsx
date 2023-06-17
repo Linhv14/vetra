@@ -2,8 +2,9 @@
 
 import React, {ReactNode, useRef} from 'react'
 import clsx from 'clsx'
+import Link from 'next/link'
 
-type SidebarItemProps = {
+type NavigatorItemProps = {
   children: ReactNode
   title: string
   active: boolean
@@ -12,10 +13,11 @@ type SidebarItemProps = {
   badgeContent?: string
   icon: string
   isParent?: boolean
+  link?: string
   onItemClick: () => void
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({
+const NavigatorItem: React.FC<NavigatorItemProps> = ({
   children,
   title = '',
   active = false,
@@ -24,6 +26,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   badgeContent = undefined,
   icon = 'bi',
   isParent = false,
+  link = '/',
   onItemClick,
 }) => {
   const dropdownRef = useRef<HTMLUListElement>(null)
@@ -36,7 +39,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       'flex ml-auto items-center justify-center bg-success rounded-[50%] w-[30px] h-[30px] text-center text-white text-sm'
   }
 
-  const sidebarItemClass = clsx('sidebar-item', {
+  const navigatorItemClass = clsx('sidebar-item', {
     ['active']: active,
   })
 
@@ -49,16 +52,19 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
   return (
     <li
-      className={sidebarItemClass}
+      className={navigatorItemClass}
       onClick={onItemClick}>
-      <a
-        href="#"
+      <Link
+        onClick={(e) => {
+          if (isParent) return e.preventDefault()
+        }}
+        href={link}
         className="flex items-center p-[10px] rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
         <i className={`${icon} text-2xl transition-all duration-75`}></i>
         <span className="px-3">{title}</span>
         {isParent && <i className={arrowIconClass}></i>}
         {badgeType && <span className={badgeStyle}>{badgeContent}</span>}
-      </a>
+      </Link>
       {isParent && (
         <ul
           className="overflow-y-hidden transition-all duration-150 ease-linear"
@@ -75,4 +81,4 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   )
 }
 
-export default SidebarItem
+export default NavigatorItem

@@ -1,53 +1,47 @@
 'use client'
 
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import Image from 'next/image'
-import SidebarItem from './SidebarItem'
 import AccountBox from './Account/AccountBox'
-import {sidebar, ISidebarItem} from '@/data/static'
-import DropdownItem from './DropdownItem'
-import {useSelector} from 'react-redux'
-import {IAppBehavior} from '@/store/slices/app-behavior'
+import {useDispatch, useSelector} from 'react-redux'
+import {IAppBehavior, toggleSidebarLayout} from '@/store/slices/app-behavior'
 import clsx from 'clsx'
+import {StoreDispatch} from '@/store'
+import Navigator from './Navigator/Navigator'
 
 const Sidebar: React.FC = () => {
-  const [activeItem, setActiveItem] = useState(1)
-  const [activeDropdown, setActiveDropdown] = useState(0)
   const isSidebarOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isSidebarOpen,
   )
+  const dispatch: StoreDispatch = useDispatch()
 
-  const handleSetActiveItem = (id: number): void => {
-    console.log('[Sidebar]: Set new active', id)
-    if (activeItem !== id) {
-      setActiveItem(id)
-      setActiveDropdown(0)
-    }
-  }
-
-  const handleSetActiveDropdown = (id: number) => {
-    setActiveDropdown((pre) => (pre === id ? 0 : id))
-  }
+  const closeSidebar = useCallback(() => {
+    console.log('[Sidebar/Callback]: Initial close sidebar func')
+    dispatch(toggleSidebarLayout(false))
+  }, [])
 
   useEffect(() => {
+    console.log('[Sidebar/Effect]: Listening resize event')
     const desktopScreen = 1280
     const handleResize = () => {
-      if (window.innerWidth < desktopScreen) {
+      if (window.innerWidth >= desktopScreen && isSidebarOpen) {
+        console.log('[Sidebar/Resize]: Trigger close sidebar activated')
+        closeSidebar()
       }
     }
-    document.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize)
     return () => {
       console.log('[Sidebar]: Clean up resize event')
-      document.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [isSidebarOpen])
 
   console.log('[Sidebar]: Render')
 
   const sidebarClass = clsx(
     'sidebar w-full -left-full sm:w-sidebar sm:-left-sidebar xl:left-0 pl-[22px] pb-[30px] h-full absolute bg-milk overflow-hidden transition-all duration-150 ease-linear z-50',
     {
-      ['translate-x-sidebar bg-white']: isSidebarOpen,
+      ['translate-x-full sm:translate-x-sidebar bg-white']: isSidebarOpen,
     },
   )
 
@@ -66,7 +60,9 @@ const Sidebar: React.FC = () => {
             priority
           />
         </a>
-        <div className="block xl:hidden p-2 text-2xl cursor-pointer ml-auto hover:text-primary">
+        <div
+          className="block xl:hidden p-2 text-2xl cursor-pointer ml-auto hover:text-primary"
+          onClick={() => closeSidebar()}>
           <i className="bi bi-x"></i>
         </div>
       </div>
@@ -74,51 +70,7 @@ const Sidebar: React.FC = () => {
       <div className="overflow-hidden h-full pb-[15%] lg:pb-[30%]">
         <div className="sidebar-box pr-[15px] h-full mr-1 scrollable scroll-visible">
           <AccountBox />
-
-          {/* Render Sidebar UI with static data */}
-          {Object.entries(sidebar).map(
-            ([key, items]: [string, ISidebarItem[]]) => (
-              <div key={key}>
-                <span className="block text-light-gray text-sm py-5 font-light">
-                  {key}
-                </span>
-                <ul>
-                  {items.map((item: ISidebarItem) => {
-                    return (
-                      <SidebarItem
-                        key={item.activeId}
-                        title={item.title}
-                        badgeType={item.badge?.type}
-                        badgeContent={item.badge?.content}
-                        icon={item.icon}
-                        active={activeItem === item.activeId}
-                        activeDropdown={activeDropdown === item.activeId}
-                        isParent={item.isParent}
-                        onItemClick={() => {
-                          if (item.isParent) {
-                            handleSetActiveDropdown(item.activeId)
-                          } else {
-                            handleSetActiveItem(item.activeId)
-                          }
-                        }}>
-                        {item.dropdown &&
-                          item.dropdown.map((dropdownItem) => (
-                            <DropdownItem
-                              title={dropdownItem.name}
-                              active={activeItem === dropdownItem.activeId}
-                              onItemClick={() =>
-                                handleSetActiveItem(dropdownItem.activeId)
-                              }
-                              key={dropdownItem.activeId}
-                            />
-                          ))}
-                      </SidebarItem>
-                    )
-                  })}
-                </ul>
-              </div>
-            ),
-          )}
+          <Navigator />
         </div>
       </div>
     </aside>

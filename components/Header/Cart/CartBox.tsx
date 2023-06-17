@@ -5,23 +5,26 @@ import Image from 'next/image'
 import clsx from 'clsx'
 import {useDispatch} from 'react-redux'
 import {toggleCartLayout} from '@/store/slices/app-behavior'
+import {StoreDispatch} from '@/store'
 
 const CartBox = () => {
   const cartBoxRef = useRef<HTMLLIElement>(null)
-  const dispatch = useDispatch()
+  const dispatch: StoreDispatch = useDispatch()
+
   useEffect(() => {
+    console.log('[Header->Cart-Box/Effect]: Listening outer click event')
     const handleOuterClick = (e: MouseEvent) => {
       if (
         cartBoxRef.current &&
         !cartBoxRef.current.contains(e.target as Node)
       ) {
-        console.log('[Header-Cart]: Outer clicked')
+        console.log('[Header->Cart-Box]: Outer clicked')
         dispatch(toggleCartLayout(false))
       }
     }
     document.addEventListener('click', handleOuterClick)
     return () => {
-      console.log('[Header-Cart]: Clean up click event')
+      console.log('[Header->Cart-Box]: Clean up outer click event')
       document.removeEventListener('click', handleOuterClick)
     }
   }, [])
@@ -29,6 +32,9 @@ const CartBox = () => {
   const cartClass = clsx(
     'absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white',
   )
+
+  console.log('[Header->Cart-Box]: Render')
+
   return (
     <li
       ref={cartBoxRef}
@@ -40,14 +46,14 @@ const CartBox = () => {
         <li className="flex items-center my-[15px] mx-0">
           <a
             href="#"
-            className="w-[65px] h-auto rounded-xl overflow-hidden">
+            className="w-[65px] h-[50px] rounded-xl overflow-hidden">
             <Image
-              className="w-full h-auto object-cover object-center"
+              className="w-[65px] h-[50px] object-cover object-center"
               src="/assets/products/3.jpg"
               alt="product-image"
               width={65}
-              height={65}
-              style={{width: '65px', height: 'auto'}}
+              height={50}
+              priority
             />
           </a>
           <div className="grow py-0 px-[15px]">
@@ -69,14 +75,14 @@ const CartBox = () => {
         <li className="flex items-center my-[15px] mx-0">
           <a
             href="#"
-            className="w-[65px] h-auto rounded-xl overflow-hidden">
+            className="w-[65px] h-[50px] rounded-xl overflow-hidden">
             <Image
-              className="w-full h-auto object-cover object-center"
+              className="w-[65px] h-[50px] object-cover object-center"
               src="/assets/products/4.jpg"
               alt="product-image"
               width={65}
-              height={65}
-              style={{width: '65px', height: 'auto'}}
+              height={50}
+              priority
             />
           </a>
           <div className="grow py-0 px-[15px]">
@@ -98,14 +104,14 @@ const CartBox = () => {
         <li className="flex items-center my-[15px] mx-0">
           <a
             href="#"
-            className="w-[65px] h-auto rounded-xl overflow-hidden">
+            className="w-[65px] h-[50px] rounded-xl overflow-hidden">
             <Image
-              className="w-full h-auto object-cover object-center"
+              className="w-[65px] h-[50px] object-cover object-center"
               src="/assets/products/6.jpg"
               alt="product-image"
               width={65}
-              height={65}
-              style={{width: '65px', height: 'auto'}}
+              height={50}
+              priority
             />
           </a>
           <div className="grow py-0 px-[15px]">
@@ -127,14 +133,14 @@ const CartBox = () => {
         <li className="flex items-center my-[15px] mx-0">
           <a
             href="#"
-            className="w-[65px] h-auto rounded-xl overflow-hidden">
+            className="w-[65px] h-[50px] rounded-xl overflow-hidden">
             <Image
-              className="w-full h-auto object-cover object-center"
+              className="w-[65px] h-[50px] object-cover object-center"
               src="/assets/products/7.jpg"
               alt="product-image"
               width={65}
-              height={65}
-              style={{width: '65px', height: 'auto'}}
+              height={50}
+              priority
             />
           </a>
           <div className="grow py-0 px-[15px]">
@@ -156,14 +162,14 @@ const CartBox = () => {
         <li className="flex items-center my-[15px] mx-0">
           <a
             href="#"
-            className="w-[65px] h-auto rounded-xl overflow-hidden">
+            className="w-[65px] h-[50px] rounded-xl overflow-hidden">
             <Image
-              className="w-full h-auto object-cover object-center"
+              className="w-[65px] h-[50px] object-cover object-center"
               src="/assets/products/10.jpg"
               alt="product-image"
               width={65}
-              height={65}
-              style={{width: '65px', height: 'auto'}}
+              height={50}
+              priority
             />
           </a>
           <div className="grow py-0 px-[15px]">

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import HeaderSearch from './HeaderSearch'
-import {useDispatch, useSelector} from 'react-redux'
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {IAppBehavior, toggleCartLayout} from '@/store/slices/app-behavior'
 import CartBox from './Cart/CartBox'
 
@@ -10,6 +10,7 @@ const HeaderAction = () => {
   const dispatch = useDispatch()
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,
+    shallowEqual,
   )
 
   console.log('[Header-Action]: Render')

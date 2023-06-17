@@ -12,6 +12,7 @@ const Header: React.FC = () => {
   const openSidebar = () => {
     dispatch(toggleSidebarLayout())
   }
+  console.log('[Header]: Render')
 
   return (
     <nav className="flex h-header items-center py-0 px-[22px] bg-milk">
