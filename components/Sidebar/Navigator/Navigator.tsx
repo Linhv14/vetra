@@ -1,29 +1,29 @@
-import React, {useState, memo} from 'react'
+import React, { useState, memo, use, useCallback } from 'react'
 import NavigatorItem from './NavigatorItem'
-import {INavigatorItem} from '@/data/static'
+import { INavigatorItem } from '@/data/static'
 import DropdownItem from '../DropdownItem'
-import {navigator} from '@/data/static'
+import { navigator } from '@/data/static'
 
 const Navigator = () => {
   const [activeItem, setActiveItem] = useState(1)
   const [activeDropdown, setActiveDropdown] = useState(0)
 
-  const handleSetActiveItem = (id: number): void => {
+  const handleSetActiveItem = useCallback((id: number): void => {
     console.log('[Sidebar]: Set new active', id)
-    if (activeItem !== id) {
-      setActiveItem(id)
-      setActiveDropdown(0)
-    }
-  }
+    setActiveItem(id)
+    setActiveDropdown(0)
+  }, [])
 
-  const handleSetActiveDropdown = (id: number) => {
+  const handleSetActiveDropdown = useCallback((id: number) => {
+
     setActiveDropdown((pre) => (pre === id ? 0 : id))
-  }
+  }, [])
 
   console.log('[Sidebar->Navigator-Box]: Render')
 
   return (
     <>
+
       {/* Render Sidebar UI with static data */}
       {Object.entries(navigator).map(
         ([key, items]: [string, INavigatorItem[]]) => (

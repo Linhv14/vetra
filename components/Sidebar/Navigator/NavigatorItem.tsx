@@ -1,6 +1,6 @@
 'use client'
 
-import React, {ReactNode, useRef} from 'react'
+import React, {ReactNode, useRef, memo} from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
 
@@ -49,7 +49,6 @@ const NavigatorItem: React.FC<NavigatorItemProps> = ({
       ['rotate-90']: activeDropdown,
     },
   )
-
   return (
     <li
       className={navigatorItemClass}
@@ -81,4 +80,4 @@ const NavigatorItem: React.FC<NavigatorItemProps> = ({
   )
 }
 
-export default NavigatorItem
+export default memo(NavigatorItem)
