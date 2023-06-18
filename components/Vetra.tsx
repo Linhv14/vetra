@@ -13,9 +13,10 @@ type VetraProps = {
 
 const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
   const isNotificationOpen = useSelector(
-    (state: IAppBehavior) => state.appBehavior.isNotificationOpen, shallowEqual
+    (state: IAppBehavior) => state.appBehavior.isNotificationOpen,
+    shallowEqual,
   )
-  
+
   return (
     <main className="w-full transition-all duration-150 ease-linear min-h-screen">
       <Sidebar />

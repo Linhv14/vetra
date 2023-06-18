@@ -11,7 +11,8 @@ import Navigator from './Navigator/Navigator'
 
 const Sidebar: React.FC = () => {
   const isSidebarOpen = useSelector(
-    (state: IAppBehavior) => state.appBehavior.isSidebarOpen, shallowEqual
+    (state: IAppBehavior) => state.appBehavior.isSidebarOpen,
+    shallowEqual,
   )
   const dispatch: StoreDispatch = useDispatch()
 
@@ -19,7 +20,6 @@ const Sidebar: React.FC = () => {
     console.log('[Sidebar/Callback]: Initial close sidebar func')
     dispatch(toggleSidebarLayout(false))
   }, [])
-
 
   const handleResize = useCallback(() => {
     const desktopScreen = 1280

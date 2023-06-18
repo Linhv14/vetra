@@ -3,9 +3,13 @@
 import React, {memo} from 'react'
 import HeaderSearch from './HeaderSearch'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
-import {IAppBehavior, toggleCartLayout, toggleNotificationLayout} from '@/store/slices/app-behavior'
+import {
+  IAppBehavior,
+  toggleCartLayout,
+  toggleNotificationLayout,
+} from '@/store/slices/app-behavior'
 import CartBox from './Cart/CartBox'
-import { StoreDispatch } from '@/store'
+import {StoreDispatch} from '@/store'
 
 const HeaderAction = () => {
   const dispatch: StoreDispatch = useDispatch()
@@ -26,7 +30,7 @@ const HeaderAction = () => {
         <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5">
           <i className="bi bi-three-dots"></i>
         </li>
-        <li 
+        <li
           className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary"
           onClick={() => dispatch(toggleNotificationLayout())}>
           <i className="bi bi-bell"></i>
