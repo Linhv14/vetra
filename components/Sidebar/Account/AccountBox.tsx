@@ -1,10 +1,11 @@
 'use client'
 
-import React, {useRef, memo} from 'react'
+import React, {useRef, memo, useCallback} from 'react'
 import Image from 'next/image'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {IAppBehavior, toggleAccountLayout} from '@/store/slices/app-behavior'
 import AccountAction from './AccountAction'
+import { StoreDispatch } from '@/store'
 
 const AccountBox = () => {
   const accountBoxRef = useRef<HTMLDivElement>(null)
@@ -12,13 +13,13 @@ const AccountBox = () => {
     (state: IAppBehavior) => state.appBehavior,
     shallowEqual,
   )
-  const dispatch = useDispatch()
+  const dispatch : StoreDispatch = useDispatch()
 
-  const handleParentOnlyClick = (e: React.MouseEvent) => {
+  const handleParentOnlyClick = useCallback((e: React.MouseEvent) => {
     if (accountBoxRef.current && accountBoxRef.current === e.target) {
       dispatch(toggleAccountLayout())
     }
-  }
+  }, [])
 
   console.log('[Sidebar->Account-Box]: Render')
 

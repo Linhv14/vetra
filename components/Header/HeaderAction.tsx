@@ -1,13 +1,14 @@
 'use client'
 
-import React from 'react'
+import React, {memo} from 'react'
 import HeaderSearch from './HeaderSearch'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
-import {IAppBehavior, toggleCartLayout} from '@/store/slices/app-behavior'
+import {IAppBehavior, toggleCartLayout, toggleNotificationLayout} from '@/store/slices/app-behavior'
 import CartBox from './Cart/CartBox'
+import { StoreDispatch } from '@/store'
 
 const HeaderAction = () => {
-  const dispatch = useDispatch()
+  const dispatch: StoreDispatch = useDispatch()
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,
     shallowEqual,
@@ -25,7 +26,9 @@ const HeaderAction = () => {
         <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5">
           <i className="bi bi-three-dots"></i>
         </li>
-        <li className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
+        <li 
+          className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary"
+          onClick={() => dispatch(toggleNotificationLayout())}>
           <i className="bi bi-bell"></i>
           <span className="absolute top-[-26%] right-[-50%] text-[10px] w-6 h-6 text-white flex items-center justify-center rounded-full bg-error">
             10
@@ -51,4 +54,4 @@ const HeaderAction = () => {
   )
 }
 
-export default HeaderAction
+export default memo(HeaderAction)

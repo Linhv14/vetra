@@ -1,11 +1,18 @@
+import { toggleNotificationLayout } from "@/store/slices/app-behavior"
+import { useDispatch } from "react-redux"
+import { memo } from "react"
+import { StoreDispatch } from "@/store"
 const Notification = () => {
+  const dispatch: StoreDispatch = useDispatch()
+
+  console.log("[Notification]: Render")
   return (
     <div
       id="notification"
-      className={`flex bg-white`}>
+      className="absolute -right-notification flex flex-col w-notification h-full visible transition-all duration-150 ease-linear bg-blue-700 -translate-x-notification z-50">
       <div className="header flex-vertical">
         <h2 className="title">Notifications</h2>
-        <div className="close">
+        <div className="close" onClick={() => dispatch(toggleNotificationLayout())}>
           <i className="bi bi-arrow-right"></i>
         </div>
       </div>
@@ -379,4 +386,4 @@ const Notification = () => {
   )
 }
 
-export default Notification
+export default memo(Notification)

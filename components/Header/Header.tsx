@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, {memo} from 'react'
 import HeaderAction from './HeaderAction'
 import {useDispatch} from 'react-redux'
 import {toggleSidebarLayout} from '@/store/slices/app-behavior'
@@ -29,4 +29,4 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header
+export default memo(Header)

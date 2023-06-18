@@ -1,9 +1,9 @@
 'use client'
 
-import React, {useCallback, useEffect} from 'react'
+import React, {useCallback, useEffect, memo} from 'react'
 import Image from 'next/image'
 import AccountBox from './Account/AccountBox'
-import {useDispatch, useSelector} from 'react-redux'
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {IAppBehavior, toggleSidebarLayout} from '@/store/slices/app-behavior'
 import clsx from 'clsx'
 import {StoreDispatch} from '@/store'
@@ -11,7 +11,7 @@ import Navigator from './Navigator/Navigator'
 
 const Sidebar: React.FC = () => {
   const isSidebarOpen = useSelector(
-    (state: IAppBehavior) => state.appBehavior.isSidebarOpen,
+    (state: IAppBehavior) => state.appBehavior.isSidebarOpen, shallowEqual
   )
   const dispatch: StoreDispatch = useDispatch()
 
@@ -20,15 +20,19 @@ const Sidebar: React.FC = () => {
     dispatch(toggleSidebarLayout(false))
   }, [])
 
+
+  const handleResize = useCallback(() => {
+    const desktopScreen = 1280
+    if (window.innerWidth >= desktopScreen && isSidebarOpen) {
+      console.log('[Sidebar/Resize]: Trigger close sidebar activated')
+      closeSidebar()
+    }
+  }, [])
+
   useEffect(() => {
     console.log('[Sidebar/Effect]: Listening resize event')
-    const desktopScreen = 1280
-    const handleResize = () => {
-      if (window.innerWidth >= desktopScreen && isSidebarOpen) {
-        console.log('[Sidebar/Resize]: Trigger close sidebar activated')
-        closeSidebar()
-      }
-    }
+    handleResize()
+
     window.addEventListener('resize', handleResize)
     return () => {
       console.log('[Sidebar]: Clean up resize event')
@@ -77,4 +81,4 @@ const Sidebar: React.FC = () => {
   )
 }
 
-export default Sidebar
+export default memo(Sidebar)

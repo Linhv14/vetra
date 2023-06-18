@@ -2,18 +2,20 @@
 
 import React, {ReactNode} from 'react'
 import {Sidebar} from './Sidebar'
-import {useSelector} from 'react-redux'
+import {shallowEqual, useSelector} from 'react-redux'
 import {IAppBehavior} from '@/store/slices/app-behavior'
 import {Header} from './Header'
+import Notification from './Notification'
 
 type VetraProps = {
   children: ReactNode
 }
 
 const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
-  const isSidebarOpen = useSelector(
-    (state: IAppBehavior) => state.appBehavior.isSidebarOpen,
+  const isNotificationOpen = useSelector(
+    (state: IAppBehavior) => state.appBehavior.isNotificationOpen, shallowEqual
   )
+  
   return (
     <main className="w-full transition-all duration-150 ease-linear min-h-screen">
       <Sidebar />
@@ -23,8 +25,7 @@ const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
           {children}
         </div>
       </section>
-      {/* <Notification /> */}
-      {/* <div className="absolute -right-notification flex flex-col w-notification h-full invisible transition-all duration-150 ease-linear bg-blue-700"></div> */}
+      {isNotificationOpen ? <Notification /> : null}
     </main>
   )
 }
