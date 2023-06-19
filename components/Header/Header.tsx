@@ -1,5 +1,3 @@
-'use client'
-
 import React, {memo} from 'react'
 import HeaderAction from './HeaderAction'
 import {useDispatch} from 'react-redux'
@@ -9,15 +7,12 @@ import {StoreDispatch} from '@/store'
 const Header: React.FC = () => {
   const dispatch: StoreDispatch = useDispatch()
 
-  const openSidebar = () => {
-    dispatch(toggleSidebarLayout())
-  }
   console.log('[Header]: Render')
 
   return (
     <nav className="flex h-header items-center py-0 px-[22px] bg-milk">
       <div
-        onClick={openSidebar}
+        onClick={() => dispatch(toggleSidebarLayout())}
         className="block xl:hidden text-3xl cursor-pointer mt-[2px] hover:text-primary">
         <i className="bi bi-list"></i>
       </div>

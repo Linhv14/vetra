@@ -22,18 +22,22 @@ const appBehaviorSlice = createSlice({
   name: 'app-behavior',
   initialState,
   reducers: {
-    toggleNotificationLayout: (state) => {
+    toggleNotificationLayout: (
+      state,
+      action: PayloadAction<boolean | undefined>,
+    ) => {
       return {
         ...initialState,
-        isVetraMove: !state.isVetraMove,
-        isNotificationOpen: !state.isNotificationOpen,
+        isNotificationOpen: action.payload ?? !state.isNotificationOpen,
       }
     },
-    toggleSettingLayout: (state) => {
+    toggleSettingLayout: (
+      state,
+      action: PayloadAction<boolean | undefined>,
+    ) => {
       return {
         ...initialState,
-        isVetraMove: !state.isVetraMove,
-        isSettingOpen: !state.isSettingOpen,
+        isSettingOpen: action.payload ?? !state.isSettingOpen,
       }
     },
     toggleSidebarLayout: (
@@ -49,7 +53,7 @@ const appBehaviorSlice = createSlice({
     toggleCartLayout: (state, action: PayloadAction<boolean | undefined>) => {
       console.log('[Redux]: CartLayout State Change')
       return {
-        ...state,
+        ...initialState,
         isCartOpen: action.payload ?? !state.isCartOpen,
       }
     },

@@ -18,15 +18,21 @@ const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
   )
 
   return (
-    <main className="w-full transition-all duration-150 ease-linear min-h-screen">
+    <main
+      className={`${
+        isNotificationOpen ? 'xl:-translate-x-notification translate-x-0' : ''
+      } w-full effect-linear min-h-screen`}>
       <Sidebar />
-      <section className="inset-0  absolute overflow-y-scroll xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear">
+      <section
+        className={`${
+          isNotificationOpen ? 'overflow-y-hidden' : 'overflow-y-scroll'
+        } inset-0 absolute xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear`}>
         <div className="relative">
           <Header />
           {children}
         </div>
       </section>
-      {isNotificationOpen ? <Notification /> : null}
+      <Notification />
     </main>
   )
 }

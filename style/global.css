@@ -125,34 +125,69 @@ ul li {
   box-shadow: 1px -1px 20px -2px var(--light-gray);
 }
 
+.notification-active {
+  @apply bg-light-primary rounded-t-[10px] text-primary;
+}
+
+.notification-active:hover {
+  @apply text-primary !important;
+}
+
+.notification-badge::after {
+  @apply content-[''] absolute w-[10px] h-[10px] rounded-full bg-warning left-[14px] top-4;
+}
+
+.warning {
+  @apply bg-warning;
+}
+
+.info {
+  @apply bg-blue;
+}
+
+.special {
+  @apply bg-purple;
+}
+
+.success {
+  @apply bg-success;
+}
+
+.effect-ease {
+  transition: all 0.25s ease;
+}
+
+.effect-linear {
+  transition: all 0.25s ease;
+}
+
 /* 
 Scroll
 
 */
 
 .scrollable {
-  overflow-y: scroll;
+  @apply overflow-y-scroll;
 }
 
 .scrollable::-webkit-scrollbar {
-  width: 0px;
+  @apply w-0;
 }
 
 .scrollable.scroll-visible::-webkit-scrollbar {
-  width: 6px;
+  @apply w-[6px];
 }
 
 .scrollable:hover::-webkit-scrollbar {
-  width: 6px;
+  @apply w-[6px];
 }
 
 .scrollable::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: transparent;
+  @apply rounded-[10px] bg-transparent;
 }
 
 .scrollable:hover::-webkit-scrollbar-thumb {
-  background-color: var(--normal-primary);
+  @apply bg-normal-primary;
 }
 
 /* Animation */

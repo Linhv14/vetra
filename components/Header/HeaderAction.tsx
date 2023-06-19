@@ -1,6 +1,5 @@
 'use client'
-
-import React, {memo} from 'react'
+import React, {memo, useState} from 'react'
 import HeaderSearch from './HeaderSearch'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {
@@ -11,12 +10,11 @@ import {
 import CartBox from './Cart/CartBox'
 import {StoreDispatch} from '@/store'
 
-const HeaderAction = () => {
-  const dispatch: StoreDispatch = useDispatch()
+const HeaderAction: React.FC = () => {
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,
-    shallowEqual,
   )
+  const dispatch: StoreDispatch = useDispatch()
 
   console.log('[Header-Action]: Render')
 

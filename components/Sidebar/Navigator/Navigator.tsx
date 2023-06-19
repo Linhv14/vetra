@@ -9,7 +9,6 @@ const Navigator = () => {
   const [activeDropdown, setActiveDropdown] = useState(0)
 
   const handleSetActiveItem = useCallback((id: number): void => {
-    console.log('[Sidebar]: Set new active', id)
     setActiveItem(id)
     setActiveDropdown(0)
   }, [])
