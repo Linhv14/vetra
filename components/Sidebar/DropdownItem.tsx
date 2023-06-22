@@ -16,7 +16,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   onItemClick,
 }) => {
   const dropdownItemClass = clsx(
-    'dropdown-item pl-[34px] mt-1 rounded-lg hover:bg-light-primary',
+    'dropdown-item pl-[34px] mt-1 rounded-lg hover:bg-light-primary effect-linear',
     {
       ['active']: active,
     },

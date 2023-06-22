@@ -2,14 +2,12 @@
 
 import React, {useEffect, useRef} from 'react'
 import Image from 'next/image'
-import clsx from 'clsx'
 import {useDispatch} from 'react-redux'
 import {toggleCartLayout} from '@/store/slices/app-behavior'
-import {StoreDispatch} from '@/store'
 
 const CartBox = () => {
   const cartBoxRef = useRef<HTMLLIElement>(null)
-  const dispatch: StoreDispatch = useDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     console.log('[Header->Cart-Box/Effect]: Listening outer click event')
@@ -29,16 +27,12 @@ const CartBox = () => {
     }
   }, [])
 
-  const cartClass = clsx(
-    'absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white',
-  )
-
   console.log('[Header->Cart-Box]: Render')
 
   return (
     <li
       ref={cartBoxRef}
-      className={cartClass}>
+      className="absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white">
       <div className="border-b border-solid border-light-border px-[15px] py-[10px] text-sm font-medium">
         Shopping Cart
       </div>

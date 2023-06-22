@@ -134,7 +134,7 @@ ul li {
 }
 
 .notification-badge::after {
-  @apply content-[''] absolute w-[10px] h-[10px] rounded-full bg-warning left-[14px] top-4;
+  @apply content-[''] absolute w-[10px] h-[10px] rounded-full bg-warning left-[10%] sm:left-[14px] top-4;
 }
 
 .warning {
@@ -153,12 +153,16 @@ ul li {
   @apply bg-success;
 }
 
+.error {
+  @apply bg-error;
+}
+
 .effect-ease {
-  transition: all 0.25s ease;
+  transition: all 0.15s ease;
 }
 
 .effect-linear {
-  transition: all 0.25s ease;
+  transition: all 0.15s ease;
 }
 
 /* 

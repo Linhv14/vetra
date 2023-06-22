@@ -2,10 +2,9 @@ import React, {memo} from 'react'
 import HeaderAction from './HeaderAction'
 import {useDispatch} from 'react-redux'
 import {toggleSidebarLayout} from '@/store/slices/app-behavior'
-import {StoreDispatch} from '@/store'
 
 const Header: React.FC = () => {
-  const dispatch: StoreDispatch = useDispatch()
+  const dispatch = useDispatch()
 
   console.log('[Header]: Render')
 

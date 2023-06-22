@@ -1,8 +1,8 @@
-import React, {useState, memo, use, useCallback} from 'react'
+import React, {useState, memo, useCallback} from 'react'
 import NavigatorItem from './NavigatorItem'
-import {INavigatorItem} from '@/data/static'
+import {INavigatorItem} from '@/data/navitagor'
 import DropdownItem from '../DropdownItem'
-import {navigator} from '@/data/static'
+import {navigator} from '@/data/navitagor'
 
 const Navigator = () => {
   const [activeItem, setActiveItem] = useState(1)

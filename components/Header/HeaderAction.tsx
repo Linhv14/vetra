@@ -1,20 +1,19 @@
 'use client'
-import React, {memo, useState} from 'react'
+import React, {memo} from 'react'
 import HeaderSearch from './HeaderSearch'
-import {shallowEqual, useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {
   IAppBehavior,
   toggleCartLayout,
   toggleNotificationLayout,
 } from '@/store/slices/app-behavior'
-import CartBox from './Cart/CartBox'
-import {StoreDispatch} from '@/store'
+import {CartBox} from './Cart'
 
 const HeaderAction: React.FC = () => {
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,
   )
-  const dispatch: StoreDispatch = useDispatch()
+  const dispatch = useDispatch()
 
   console.log('[Header-Action]: Render')
 
@@ -22,10 +21,10 @@ const HeaderAction: React.FC = () => {
     <>
       <HeaderSearch />
       <ul className="relative flex items-center ml-auto">
-        <li className="block lg:hidden relative cursor-pointer text-2xl my-0 mx-5">
+        <li className="block lg:hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
           <i className="bi bi-search"></i>
         </li>
-        <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5">
+        <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
           <i className="bi bi-three-dots"></i>
         </li>
         <li

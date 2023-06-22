@@ -58,7 +58,7 @@ const NavigatorItem: React.FC<NavigatorItemProps> = ({
           if (isParent) return e.preventDefault()
         }}
         href={link}
-        className="flex items-center p-[10px] rounded-lg leading-8 hover:bg-light-primary hover:text-primary">
+        className="flex items-center p-[10px] rounded-lg leading-8 hover:bg-light-primary hover:text-primary effect-linear dur">
         <i className={`${icon} text-2xl transition-all duration-75`}></i>
         <span className="px-3">{title}</span>
         {isParent && <i className={arrowIconClass}></i>}

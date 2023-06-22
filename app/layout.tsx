@@ -4,7 +4,7 @@ import {Sidebar} from '@/components/Sidebar'
 import {Header} from '@/components/Header'
 import Vetra from '@/components/Vetra'
 import {Providers} from './providers'
-import Notification from '@/components/Notification'
+import Notification from '@/components/Notification/Notification'
 import Head from 'next/head'
 import {Poppins} from 'next/font/google'
 

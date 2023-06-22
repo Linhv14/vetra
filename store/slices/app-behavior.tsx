@@ -11,7 +11,7 @@ interface IAppBehaviorState {
 
 const initialState: IAppBehaviorState = {
   isVetraMove: false,
-  isNotificationOpen: false,
+  isNotificationOpen: true,
   isSettingOpen: false,
   isSidebarOpen: false,
   isCartOpen: false,
@@ -62,6 +62,7 @@ const appBehaviorSlice = createSlice({
       action: PayloadAction<boolean | undefined>,
     ) => {
       console.log('[Redux]: Account State Change')
+      console.log(action.payload)
       return {
         ...state,
         isAccountOpen: action.payload ?? !state.isAccountOpen,

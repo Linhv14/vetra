@@ -1,3 +1,5 @@
+'use client'
+
 import {StoreDispatch} from '@/store'
 import {toggleAccountLayout} from '@/store/slices/app-behavior'
 import React, {useEffect, useRef} from 'react'
@@ -5,7 +7,7 @@ import {useDispatch} from 'react-redux'
 
 const AccountAction = () => {
   const accountActionRef = useRef<HTMLUListElement>(null)
-  const dispatch: StoreDispatch = useDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const handleOuterClick = (e: MouseEvent) => {

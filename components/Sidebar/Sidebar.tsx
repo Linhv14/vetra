@@ -3,20 +3,17 @@
 import React, {useEffect, memo} from 'react'
 import Image from 'next/image'
 import AccountBox from './Account/AccountBox'
-import {shallowEqual, useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {IAppBehavior, toggleSidebarLayout} from '@/store/slices/app-behavior'
-import {StoreDispatch} from '@/store'
 import Navigator from './Navigator/Navigator'
 
 const Sidebar: React.FC = () => {
   const isSidebarOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isSidebarOpen,
-    shallowEqual,
   )
-  const dispatch: StoreDispatch = useDispatch()
+  const dispatch = useDispatch()
 
   const handleResize = () => {
-    console.log(window.innerWidth)
     const desktopScreen = 1280
     if (window.innerWidth >= desktopScreen && isSidebarOpen) {
       console.log('[Sidebar/Resize]: Trigger close sidebar activated')

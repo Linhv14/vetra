@@ -2,10 +2,10 @@
 
 import React, {ReactNode} from 'react'
 import {Sidebar} from './Sidebar'
-import {shallowEqual, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {IAppBehavior} from '@/store/slices/app-behavior'
 import {Header} from './Header'
-import Notification from './Notification'
+import {Notification} from './Notification'
 
 type VetraProps = {
   children: ReactNode
@@ -14,7 +14,6 @@ type VetraProps = {
 const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
   const isNotificationOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isNotificationOpen,
-    shallowEqual,
   )
 
   return (
