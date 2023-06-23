@@ -11,7 +11,7 @@ interface IAppBehaviorState {
 
 const initialState: IAppBehaviorState = {
   isVetraMove: false,
-  isNotificationOpen: true,
+  isNotificationOpen: false,
   isSettingOpen: false,
   isSidebarOpen: false,
   isCartOpen: false,

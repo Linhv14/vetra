@@ -4,4 +4,4 @@ const Panel = ({children}: {children: React.ReactNode}) => {
   return <div className="relative grow">{children}</div>
 }
 
-export default Panel
+export default React.memo(Panel)

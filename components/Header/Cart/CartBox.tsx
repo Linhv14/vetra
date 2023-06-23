@@ -32,7 +32,7 @@ const CartBox = () => {
   return (
     <li
       ref={cartBoxRef}
-      className="absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white">
+      className="absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white fade-down">
       <div className="border-b border-solid border-light-border px-[15px] py-[10px] text-sm font-medium">
         Shopping Cart
       </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, memo} from 'react'
+import React, {useEffect, memo, useCallback} from 'react'
 import Image from 'next/image'
 import AccountBox from './Account/AccountBox'
 import {useDispatch, useSelector} from 'react-redux'

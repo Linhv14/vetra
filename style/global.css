@@ -138,23 +138,23 @@ ul li {
 }
 
 .warning {
-  @apply bg-warning;
+  @apply bg-warning text-warning;
 }
 
 .info {
-  @apply bg-blue;
+  @apply bg-info text-info;
 }
 
 .special {
-  @apply bg-purple;
+  @apply bg-special text-special;
 }
 
 .success {
-  @apply bg-success;
+  @apply bg-success text-success;
 }
 
 .error {
-  @apply bg-error;
+  @apply bg-error text-error;
 }
 
 .effect-ease {
@@ -196,6 +196,10 @@ Scroll
 
 /* Animation */
 
+.fade-down {
+  animation: fadeDown 0.15s linear;
+}
+
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -218,6 +222,10 @@ Scroll
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.float-from-right {
+  animation: floatFromRight 0.15s linear;
 }
 
 @keyframes floatFromRight {

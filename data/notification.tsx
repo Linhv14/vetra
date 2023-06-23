@@ -6,7 +6,7 @@ export interface INotification {
   seen?: boolean
 }
 
-enum NotificationType {
+export enum NotificationType {
   SUCCESS = 'success',
   INFO = 'info',
   WARNING = 'warning',
@@ -54,20 +54,34 @@ export const activities: INotification[] = [
   {
     type: NotificationType.ERROR,
     icon: 'bi bi-hdd',
-    title: "Fail to calculate this month's revenue",
-    timestamp: 'Today',
+    title: "Fail to figure out this month's revenue",
+    timestamp: '3 days ago',
+    seen: false,
+  },
+  {
+    type: NotificationType.INFO,
+    icon: 'bi bi-lock',
+    title: '2 step verification',
+    timestamp: 'Yesterday',
+    seen: true,
+  },
+  {
+    type: NotificationType.ERROR,
+    icon: 'bi bi-hdd',
+    title: "Fail to figure out this month's revenue",
+    timestamp: '3 days ago',
     seen: false,
   },
 ]
 
 export const notes: INotification[] = [
   {
-    type: NotificationType.INFO,
+    type: NotificationType.SUCCESS,
     title: "This month's report will be prepared.",
     timestamp: 'Yesterday',
   },
   {
-    type: NotificationType.INFO,
+    type: NotificationType.SUCCESS,
     title: 'An email will be sent to the customer.',
     timestamp: 'Yesterday',
   },
@@ -77,7 +91,7 @@ export const notes: INotification[] = [
     timestamp: 'Yesterday',
   },
   {
-    type: NotificationType.INFO,
+    type: NotificationType.SUCCESS,
     title: 'Conversation with users.',
     timestamp: 'Today',
   },
@@ -87,7 +101,7 @@ export const notes: INotification[] = [
     timestamp: '18 min ago',
   },
   {
-    type: NotificationType.INFO,
+    type: NotificationType.SUCCESS,
     title: 'Payment form will be activated.',
     timestamp: '3 days ago',
   },
@@ -119,7 +133,7 @@ export const alerts: INotification[] = [
     type: NotificationType.WARNING,
     icon: 'bi bi-hdd',
     title: 'Your storage space is running low',
-    timestamp: 'Today',
+    timestamp: '2 days ago',
     seen: true,
   },
 ]
