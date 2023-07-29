@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useRef, memo, useCallback} from 'react'
+import React, {useRef, memo} from 'react'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 import {IAppBehavior, toggleAccountLayout} from '@/store/slices/app-behavior'
@@ -8,13 +8,27 @@ import AccountAction from './AccountAction'
 
 const AccountBox = () => {
   const accountBoxRef = useRef<HTMLDivElement>(null)
+  const avatarRef = useRef<HTMLDivElement>(null)
+  const accountInfoRef = useRef<HTMLDivElement>(null)
+
   const isAccountOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isAccountOpen,
   )
   const dispatch = useDispatch()
 
-  const handleParentOnlyClick = (e: React.MouseEvent) => {
-    if (accountBoxRef.current && accountBoxRef.current === e.target) {
+  const showAccountAction = (e: React.MouseEvent) => {
+    if (
+      !accountBoxRef.current ||
+      !avatarRef.current ||
+      !accountInfoRef.current
+    ) {
+      return
+    }
+    if (
+      accountBoxRef.current === e.target ||
+      accountInfoRef.current.contains(e.target as Node) ||
+      avatarRef.current.contains(e.target as Node)
+    ) {
       dispatch(toggleAccountLayout())
     }
   }
@@ -25,8 +39,10 @@ const AccountBox = () => {
     <div
       ref={accountBoxRef}
       className="bg-milk xl:bg-white account relative p-[15px] rounded-lg w-full cursor-pointer flex items-center"
-      onClick={handleParentOnlyClick}>
-      <div className="w-[50px] h-[50px] rounded-[50%] overflow-hidden mr-[15px]">
+      onClick={showAccountAction}>
+      <div
+        ref={avatarRef}
+        className="w-[50px] h-[50px] rounded-[50%] overflow-hidden mr-[15px]">
         <Image
           className="image w-full"
           src="/assets/users/avatar.jpg"
@@ -36,7 +52,7 @@ const AccountBox = () => {
           priority
         />
       </div>
-      <div>
+      <div ref={accountInfoRef}>
         <h4 className="text-primary font-semibold text-base">Van Linh</h4>
         <span className="text-light-gray text-sm">Sales Manager</span>
       </div>

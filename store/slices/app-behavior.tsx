@@ -52,6 +52,13 @@ const appBehaviorSlice = createSlice({
     },
     toggleCartLayout: (state, action: PayloadAction<boolean | undefined>) => {
       console.log('[Redux]: CartLayout State Change')
+      if (state.isNotificationOpen) {
+        return {
+          ...initialState,
+          isNotificationOpen: state.isNotificationOpen,
+          isCartOpen: action.payload ?? !state.isCartOpen,
+        }
+      }
       return {
         ...initialState,
         isCartOpen: action.payload ?? !state.isCartOpen,
@@ -62,10 +69,14 @@ const appBehaviorSlice = createSlice({
       action: PayloadAction<boolean | undefined>,
     ) => {
       console.log('[Redux]: Account State Change')
-      console.log(action.payload)
       return {
         ...state,
         isAccountOpen: action.payload ?? !state.isAccountOpen,
+      }
+    },
+    resetState: () => {
+      return {
+        ...initialState,
       }
     },
   },
@@ -81,6 +92,7 @@ export const {
   toggleSidebarLayout,
   toggleAccountLayout,
   toggleCartLayout,
+  resetState,
 } = appBehaviorSlice.actions
 
 export default appBehaviorSlice.reducer

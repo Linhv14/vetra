@@ -1,13 +1,19 @@
 'use client'
 
-import {StoreDispatch} from '@/store'
-import {toggleAccountLayout} from '@/store/slices/app-behavior'
+import {
+  IAppBehavior,
+  toggleAccountLayout,
+  toggleSettingLayout,
+} from '@/store/slices/app-behavior'
 import React, {useEffect, useRef} from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {SignOutButton} from '@clerk/nextjs'
+import {StoreDispatch} from '@/store'
 
 const AccountAction = () => {
+  const dispatch: StoreDispatch = useDispatch()
   const accountActionRef = useRef<HTMLUListElement>(null)
-  const dispatch = useDispatch()
+  const settingBtnRef = useRef<HTMLAnchorElement>(null)
 
   useEffect(() => {
     const handleOuterClick = (e: MouseEvent) => {
@@ -29,6 +35,21 @@ const AccountAction = () => {
       document.removeEventListener('click', handleOuterClick)
     }
   }, [])
+
+  const openSettings = () => {
+    console.log('[Sidebar->Account-Action]: Open Settings')
+    dispatch(toggleSettingLayout())
+  }
+
+  useEffect(() => {
+    settingBtnRef.current?.addEventListener('click', openSettings)
+
+    return () => {
+      console.log('[Sidebar->Account-Action]: Remove open setting listener')
+      settingBtnRef.current?.removeEventListener('click', openSettings)
+    }
+  }, [])
+
   console.log('[Sidebar->Account-Action]: Render')
   return (
     <ul
@@ -52,6 +73,7 @@ const AccountAction = () => {
       </li>
       <li>
         <a
+          ref={settingBtnRef}
           href="#"
           className="block text-sm px-5 py-[10px] hover:text-primary">
           <i className="pr-[10px] bi bi-gear"></i>
@@ -63,11 +85,11 @@ const AccountAction = () => {
           href="#"
           className="block text-sm px-5 py-[10px] hover:text-primary">
           <i className="pr-[10px] bi bi-box-arrow-right"></i>
-          Logout
+          <SignOutButton>Sign out</SignOutButton>
         </a>
       </li>
     </ul>
   )
 }
 
-export default AccountAction
+export default React.forwardRef(AccountAction)

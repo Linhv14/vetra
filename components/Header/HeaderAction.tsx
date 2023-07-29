@@ -8,7 +8,6 @@ import {
   toggleNotificationLayout,
 } from '@/store/slices/app-behavior'
 import {CartBox} from './Cart'
-
 const HeaderAction: React.FC = () => {
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,

@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import {IAppBehavior} from '@/store/slices/app-behavior'
 import {Header} from './Header'
 import {Notification} from './Notification'
+import Settings from './Settings'
 
 type VetraProps = {
   children: ReactNode
@@ -16,21 +17,30 @@ const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
     (state: IAppBehavior) => state.appBehavior.isNotificationOpen,
   )
 
+  const isSettingOpen = useSelector(
+    (state: IAppBehavior) => state.appBehavior.isSettingOpen,
+  )
+
   return (
     <main
       className={`${
-        isNotificationOpen ? 'xl:-translate-x-notification translate-x-0' : ''
+        isNotificationOpen || isSettingOpen
+          ? 'xl:-translate-x-notification translate-x-0'
+          : ''
       } w-full effect-linear min-h-screen`}>
       <Sidebar />
       <section
         className={`${
-          isNotificationOpen ? 'overflow-y-hidden' : 'overflow-y-scroll'
+          isNotificationOpen || isSettingOpen
+            ? 'overflow-y-hidden'
+            : 'overflow-y-scroll'
         } inset-0 absolute xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear`}>
         <div className="relative">
           <Header />
           {children}
         </div>
       </section>
+      <Settings />
       <Notification />
     </main>
   )

@@ -17,8 +17,10 @@ const Notification = () => {
   return (
     <div
       className={`${
-        isNotificationOpen ? 'right-0' : '-right-full sm:-right-notification'
-      } w-full sm:w-notification absolute xl:-right-notification flex flex-col h-full visible effect-linear bg-blue-700 z-50 bg-white`}>
+        isNotificationOpen
+          ? 'right-0 z-50'
+          : '-right-full sm:-right-notification z-40'
+      } w-full sm:w-notification absolute xl:-right-notification flex flex-col h-full visible effect-linear bg-white`}>
       <div className="justify-between h-header py-[30px] px-[22px] flex items-center">
         <h2 className="text-[22px] font-normal">Notifications</h2>
         <div

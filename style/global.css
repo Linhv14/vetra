@@ -158,11 +158,19 @@ ul li {
 }
 
 .effect-ease {
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
 }
 
 .effect-linear {
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
+}
+
+.custom-checked:checked {
+  @apply bg-dark-primary;
+}
+
+.custom-checked:checked {
+  background-image: url(../public/assets/check.png);
 }
 
 /* 
