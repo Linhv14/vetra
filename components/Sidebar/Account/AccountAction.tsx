@@ -13,8 +13,6 @@ import {StoreDispatch} from '@/store'
 const AccountAction = () => {
   const dispatch: StoreDispatch = useDispatch()
   const accountActionRef = useRef<HTMLUListElement>(null)
-  const settingBtnRef = useRef<HTMLAnchorElement>(null)
-
   useEffect(() => {
     const handleOuterClick = (e: MouseEvent) => {
       console.log(
@@ -41,15 +39,6 @@ const AccountAction = () => {
     dispatch(toggleSettingLayout())
   }
 
-  useEffect(() => {
-    settingBtnRef.current?.addEventListener('click', openSettings)
-
-    return () => {
-      console.log('[Sidebar->Account-Action]: Remove open setting listener')
-      settingBtnRef.current?.removeEventListener('click', openSettings)
-    }
-  }, [])
-
   console.log('[Sidebar->Account-Action]: Render')
   return (
     <ul
@@ -73,7 +62,7 @@ const AccountAction = () => {
       </li>
       <li>
         <a
-          ref={settingBtnRef}
+          onClick={openSettings}
           href="#"
           className="block text-sm px-5 py-[10px] hover:text-primary">
           <i className="pr-[10px] bi bi-gear"></i>

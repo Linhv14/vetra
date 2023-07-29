@@ -13,15 +13,15 @@ const Sidebar: React.FC = () => {
   )
   const dispatch = useDispatch()
 
-  const handleResize = () => {
-    const desktopScreen = 1280
-    if (window.innerWidth >= desktopScreen && isSidebarOpen) {
-      console.log('[Sidebar/Resize]: Trigger close sidebar activated')
-      dispatch(toggleSidebarLayout(false))
-    }
-  }
 
   useEffect(() => {
+    const handleResize = () => {
+      const desktopScreen = 1280
+      if (window.innerWidth >= desktopScreen && isSidebarOpen) {
+        console.log('[Sidebar/Resize]: Trigger close sidebar activated')
+        dispatch(toggleSidebarLayout(false))
+      }
+    }
     if (isSidebarOpen) {
       console.log('[Sidebar/Effect]: Listening resize event')
       window.addEventListener('resize', handleResize)
