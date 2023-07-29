@@ -13,7 +13,7 @@ type LayoutProps = {children: ReactNode}
 
 const SetupLayout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={"pk_test_c2FjcmVkLWtpdHRlbi0zMi5jbGVyay5hY2NvdW50cy5kZXYk"}>
       <html lang="en">
         <head>
           <link
