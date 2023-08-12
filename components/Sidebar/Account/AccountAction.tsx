@@ -1,12 +1,11 @@
 'use client'
 
 import {
-  IAppBehavior,
   toggleAccountLayout,
   toggleSettingLayout,
 } from '@/store/slices/app-behavior'
 import React, {useEffect, useRef} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {SignOutButton} from '@clerk/nextjs'
 import {StoreDispatch} from '@/store'
 

@@ -11,9 +11,21 @@
   user-select: none;
 }
 
+.apexcharts-menu .apexcharts-menu-open {
+  background-color: red;
+}
+
 /* li a {
   border: 1px solid red;
 } */
+
+/* unit */
+.w-1-3 {
+  width: calc(100%/3 * 1 - 22px/2);
+}
+.w-2-3 {
+  width: calc(100%/3 * 2 - 22px/2);
+}
 
 *::selection {
   background-color: var(--light-primary);

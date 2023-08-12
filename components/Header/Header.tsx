@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         <i className="bi bi-list"></i>
       </div>
       <div>
-        <h2 className="px-[10px] font-semibold text-2xl">Dashboard</h2>
+        <h2 className="px-[10px] font-semibold text-2xl cursor-text">Dashboard</h2>
       </div>
       <HeaderAction />
     </nav>
