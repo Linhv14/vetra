@@ -174,7 +174,7 @@ ul li {
 }
 
 .effect-linear {
-  transition: all 0.25s ease;
+  transition: all 0.25s linear;
 }
 
 .custom-checked:checked {
@@ -183,6 +183,16 @@ ul li {
 
 .custom-checked:checked {
   background-image: url(../public/assets/check.png);
+}
+
+.dropdown-selector {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  /* width: 15px;
+  height: 15px; */
+  background-size: 10px;
+  background-position: 90%;
 }
 
 /* 

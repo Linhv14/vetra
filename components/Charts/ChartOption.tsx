@@ -1,6 +1,9 @@
 import React from 'react'
-import ChartOptionButton from './ChartOptionButton'
-
+import dynamic from 'next/dynamic'
+const ChartOptionButton = dynamic(
+  () => import("@/components/Charts/ChartOptionButton"),
+  { ssr: false }
+)
 type ChartOptionProps = { chartID: string }
 
 const ChartOption: React.FC<ChartOptionProps> = ({ chartID }) => {

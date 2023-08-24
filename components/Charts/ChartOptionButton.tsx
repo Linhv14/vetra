@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 type ChartOptionButtonProps = {
@@ -46,7 +47,7 @@ const ChartOptionButton: React.FC<ChartOptionButtonProps> = ({ isOpen, chartID, 
 
 
   return (
-    <div ref={optionButtonRef} className="bg-white absolute right-full top-0 -translate-x-1 rounded-md p-4 gap-3 flex-col flex z-10">
+    <div ref={optionButtonRef} className="bg-white absolute right-full top-0 -translate-x-1 rounded-md p-4 gap-3 flex-col flex z-10 drop-shadow-md">
       <button className="block text-sm whitespace-nowrap hover:text-primary">View Detail</button>
       <button onClick={() => { downloadChartAsImage(chartID) }} className="block text-sm whitespace-nowrap hover:text-primary">Download</button>
     </div>
