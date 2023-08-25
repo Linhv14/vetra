@@ -29,7 +29,7 @@ const Home = () => {
           <i className="bi bi-bag-check text-success text-3xl"></i>
           <div className="text-black text-[34px]">$10.552,40</div>
           <div className="text-success text-sm"><i className="bi bi-arrow-up"></i> 8.30%</div>
-          <select name="sales-date-picker" id="sales-date-picker" title="Sales Date Picker" className="ml-auto border border-light-border p-3 rounded-lg w-36 appearance-none text-sm dropdown-selector">
+          <select defaultValue={'02 October 2021'} name="sales-date-picker" id="sales-date-picker" title="Sales Date Picker" className="ml-auto border border-light-border p-3 rounded-lg w-36 appearance-none text-sm dropdown-selector">
             <optgroup label="2021">
               <option className="text-sm" value="02 October 2021">October</option>
               <option className="text-sm" value="02 November 2021">November</option>
@@ -40,7 +40,7 @@ const Home = () => {
               <option className="text-sm" value="02 February 2022">February</option>
               <option className="text-sm" value="02 March 2022">March</option>
               <option className="text-sm" value="02 April 2022">April</option>
-              <option className="text-sm" value="02 May 2022" selected>May</option>
+              <option className="text-sm" value="02 May 2022">May</option>
               <option className="text-sm" value="02 June 2022">June</option>
               <option className="text-sm" value="02 July 2022">July</option>
               <option className="text-sm" value="02 August 2022">August</option>

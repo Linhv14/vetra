@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { ApexOptions } from 'apexcharts';
 import ApexCharts from "apexcharts"
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-
+import { generateDateCategories, generateRandomData, generateXaxisLabels } from '@/data/ganerator';
 
 const SalesChart = () => {
 
@@ -30,7 +30,12 @@ const SalesChart = () => {
       },
     },
     xaxis: {
-      categories: ['01 May', '02 May', '03 May', '04 May', '05May', '06 May', '07 May', '08 May', '09 May', '10 May', '11 May', '12 May'],
+      categories: generateDateCategories('May', 31),
+      // range: 12,
+      overwriteCategories: generateXaxisLabels('May', 31, 3),
+      labels: {
+        rotate: 0,
+      }
     },
     legend: {
       show: false
@@ -40,16 +45,16 @@ const SalesChart = () => {
       {
         name: "Orders",
         type: "line",
-        data: [72, 75, 75, 77, 71, 72, 76, 74, 78, 76, 75, 73]
+        data: generateRandomData(65, 78, 31),
       },
       {
         name: "Sales",
         type: "line",
-        data: [61, 65, 70, 67, 59, 62, 61, 63, 65, 71, 67, 68]
+        data: generateRandomData(57, 64, 31),
       }
     ]
   };
-
+  
   const showLengend = (e: React.MouseEvent) => {
     const value = (e.currentTarget as HTMLButtonElement).value;
 
