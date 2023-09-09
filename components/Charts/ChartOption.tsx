@@ -1,22 +1,32 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 const ChartOptionButton = dynamic(
-  () => import("@/components/Charts/ChartOptionButton"),
-  { ssr: false }
+  () => import('@/components/Charts/ChartOptionButton'),
+  {ssr: false},
 )
-type ChartOptionProps = { chartID: string }
+type ChartOptionProps = {chartID: string}
 
-const ChartOption: React.FC<ChartOptionProps> = ({ chartID }) => {
+const ChartOption: React.FC<ChartOptionProps> = ({chartID}) => {
   const [isOpenButton, setisOpenButton] = React.useState(false)
 
   return (
     <>
-      <div className={`${isOpenButton ? 'border-primary' : 'border-transparent'} cursor-pointer outline-none py-1 border-[1px] border-solid px-2 rounded-md`} onClick={() => { 
-        
-        setisOpenButton(true) }}>
+      <div
+        className={`${
+          isOpenButton ? 'border-primary' : 'border-transparent'
+        } cursor-pointer outline-none py-1 border-[1px] border-solid px-2 rounded-md`}
+        onClick={() => {
+          setisOpenButton(true)
+        }}>
         <i className="bi bi-three-dots"></i>
       </div>
-      <ChartOptionButton isOpen={isOpenButton} chartID={chartID} onClose={() => {setisOpenButton(false)}} />
+      <ChartOptionButton
+        isOpen={isOpenButton}
+        chartID={chartID}
+        onClose={() => {
+          setisOpenButton(false)
+        }}
+      />
     </>
   )
 }

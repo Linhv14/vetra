@@ -1,17 +1,15 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { ApexOptions } from 'apexcharts';
-const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-
+import React from 'react'
+import dynamic from 'next/dynamic'
+import {ApexOptions} from 'apexcharts'
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {ssr: false})
 
 const ChanelsChart = () => {
-
   const chanelsChartOpt: ApexOptions = {
     chart: {
       id: 'chanels',
       type: 'donut',
       toolbar: {
-        show: false
+        show: false,
       },
     },
     series: [48, 30, 22],
@@ -26,7 +24,7 @@ const ChanelsChart = () => {
     dataLabels: {
       style: {
         fontSize: '18px',
-      }
+      },
     },
     plotOptions: {
       pie: {
@@ -34,19 +32,19 @@ const ChanelsChart = () => {
         donut: {
           size: '35%',
         },
-        expandOnClick: false
-      }
-    }
-  };
+        expandOnClick: false,
+      },
+    },
+  }
 
   return (
     <ReactApexChart
       options={chanelsChartOpt}
       series={chanelsChartOpt.series}
       height={300}
-      type='donut'
+      type="donut"
     />
-  );
-};
+  )
+}
 
-export default ChanelsChart;
+export default ChanelsChart

@@ -1,14 +1,17 @@
 'use client'
-import React, {memo} from 'react'
+import React, { memo } from 'react'
 import HeaderSearch from './HeaderSearch'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   IAppBehavior,
   toggleCartLayout,
   toggleNotificationLayout,
 } from '@/store/slices/app-behavior'
-import {CartBox} from './Cart'
+import { CartBox } from './Cart'
+import HeaderMobile from './HeaderMobile'
+
 const HeaderAction: React.FC = () => {
+  const [isHeaderMobileOpen, setIsHeaderMobileOpen] = React.useState<boolean>(false)
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,
   )
@@ -20,13 +23,16 @@ const HeaderAction: React.FC = () => {
     <>
       <HeaderSearch />
       <ul className="relative flex items-center ml-auto">
-        <li className="block lg:hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
+        <li className="block lg:hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary" role='button'>
           <i className="bi bi-search"></i>
         </li>
-        <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary">
+        <li className="block sm:hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary" role='button'
+          onClick={() => setIsHeaderMobileOpen(true)}
+        >
           <i className="bi bi-three-dots"></i>
         </li>
         <li
+          role='button'
           className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary"
           onClick={() => dispatch(toggleNotificationLayout())}>
           <i className="bi bi-bell"></i>
@@ -35,6 +41,7 @@ const HeaderAction: React.FC = () => {
           </span>
         </li>
         <li
+          role='button'
           className="sm:inline-block hidden relative cursor-pointer text-2xl my-0 mx-5 hover:text-primary"
           onClick={() => dispatch(toggleCartLayout())}>
           <i className="bi bi-cart"></i>
@@ -50,6 +57,11 @@ const HeaderAction: React.FC = () => {
         <i className="bi bi-plus-circle"></i>
         <span>Add Product</span>
       </a>
+      {isHeaderMobileOpen ?
+        <HeaderMobile 
+        isOpen={isHeaderMobileOpen} 
+        onClose={() => setIsHeaderMobileOpen(false)} />
+        : ""}
     </>
   )
 }

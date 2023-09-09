@@ -13,7 +13,6 @@ const Sidebar: React.FC = () => {
   )
   const dispatch = useDispatch()
 
-
   useEffect(() => {
     const handleResize = () => {
       const desktopScreen = 1280
