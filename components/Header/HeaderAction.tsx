@@ -9,7 +9,7 @@ import {
 } from '@/store/slices/app-behavior'
 import { CartBox } from './Cart'
 import HeaderMobile from './HeaderMobile'
-
+import { AnimatePresence } from "framer-motion"
 const HeaderAction: React.FC = () => {
   const [isHeaderMobileOpen, setIsHeaderMobileOpen] = React.useState<boolean>(false)
   const isCartOpen = useSelector(
@@ -53,7 +53,9 @@ const HeaderAction: React.FC = () => {
             5
           </span>
         </li>
-        {isCartOpen ? <CartBox /> : ''}
+        <AnimatePresence>
+          {isCartOpen && <CartBox />}
+        </AnimatePresence>
       </ul>
       <a
         className="hidden sm:flex text-white bg-primary text-sm gap-2 min-w-[150px] ml-3 py-3 px-4 items-center justify-center rounded-lg hover:bg-dark-primary"
@@ -61,11 +63,13 @@ const HeaderAction: React.FC = () => {
         <i className="bi bi-plus-circle"></i>
         <span>Add Product</span>
       </a>
-      {isHeaderMobileOpen ?
-        <HeaderMobile
-        isOpen={isHeaderMobileOpen} 
-        onClose={handleClose} />
-        : ""}
+      <AnimatePresence>
+        {isHeaderMobileOpen &&
+          <HeaderMobile
+            isOpen={isHeaderMobileOpen}
+            onClose={handleClose} />
+        }
+      </AnimatePresence>
     </>
   )
 }

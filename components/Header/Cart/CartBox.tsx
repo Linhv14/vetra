@@ -4,9 +4,10 @@ import React, {useEffect, useRef} from 'react'
 import Image from 'next/image'
 import {useDispatch} from 'react-redux'
 import {toggleCartLayout} from '@/store/slices/app-behavior'
-
+import { motion } from "framer-motion"
 const CartBox = () => {
   const cartBoxRef = useRef<HTMLLIElement>(null)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -30,9 +31,12 @@ const CartBox = () => {
   console.log('[Header->Cart-Box]: Render')
 
   return (
-    <li
+    <motion.li
+      initial={{y: -15, opacity: 0}}
+      animate={{y: 0, opacity: 1}}
+      exit={{y: -15, opacity: 0}}
       ref={cartBoxRef}
-      className="absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white fade-down z-50">
+      className="absolute w-cart top-[150%] right-0 transition-all duration-150 ease-linear shadow-c-primary rounded-lg bg-white z-50">
       <div className="border-b border-solid border-light-border px-[15px] py-[10px] text-sm font-medium">
         Shopping Cart
       </div>
@@ -187,7 +191,7 @@ const CartBox = () => {
         <span>Sub Total:</span>
         <span className="text-primary font-semibold ml-[2px]">$1254.26</span>
       </div>
-    </li>
+    </motion.li>
   )
 }
 

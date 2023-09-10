@@ -1,5 +1,5 @@
 import { toggleCartLayout, toggleNotificationLayout } from '@/store/slices/app-behavior'
-
+import { motion } from "framer-motion"
 import React, { memo } from 'react'
 import { useDispatch } from 'react-redux'
 type HeaderMobileProps = {
@@ -42,7 +42,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({ isOpen, onClose }) => {
   console.log("[Header->HeaderMobile] Render");
   console.log("[Header->HeaderMobile]", isOpen);
 
-  return <div ref={headerMobileRef} className={`${isOpen ? "float-from-top" : "float-to-top"} absolute inset-0 bg-white py-0 px-[22px] flex items-center top-0`}
+  return <motion.div initial={{y: -100}}  animate={{ y: 0 }} exit={{ y: -100}} ref={headerMobileRef} className={`${isOpen ? "float-from-topp" : "float-to-top"} absolute inset-0 bg-white py-0 px-[22px] flex items-center top-0`}
   >
     <ul className="flex items-center ml-auto">
       <li
@@ -70,7 +70,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({ isOpen, onClose }) => {
       <i className="bi bi-plus-circle"></i>
       <span>Add Product</span>
     </a>
-  </div>
+  </motion.div>
 }
 
 export default memo(HeaderMobile)
