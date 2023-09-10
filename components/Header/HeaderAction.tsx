@@ -15,9 +15,13 @@ const HeaderAction: React.FC = () => {
   const isCartOpen = useSelector(
     (state: IAppBehavior) => state.appBehavior.isCartOpen,
   )
+  const handleClose = () => {
+    setIsHeaderMobileOpen(false)
+  }
   const dispatch = useDispatch()
 
   console.log('[Header-Action]: Render')
+  console.log(isHeaderMobileOpen);
 
   return (
     <>
@@ -58,9 +62,9 @@ const HeaderAction: React.FC = () => {
         <span>Add Product</span>
       </a>
       {isHeaderMobileOpen ?
-        <HeaderMobile 
+        <HeaderMobile
         isOpen={isHeaderMobileOpen} 
-        onClose={() => setIsHeaderMobileOpen(false)} />
+        onClose={handleClose} />
         : ""}
     </>
   )

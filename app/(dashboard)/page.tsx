@@ -26,7 +26,7 @@ const Home = () => {
         <div className="bg-white w-full relative p-[24px] flex flex-col grow rounded-xl">
           <div className="flex items-center gap-4 flex-wrap">
             <i className="bi bi-bag-check text-success text-2xl sm:text-3xl effect-linear"></i>
-            <div className="text-black text-2xl sm:text-[34px] effect-linear">$10.552,40</div>
+            <div className="text-black text-2xl sm:text-[34px] effect-linear">$15.552,40</div>
             <div className="text-success text-sm">
               <i className="bi bi-arrow-up"></i> 8.30%
             </div>
