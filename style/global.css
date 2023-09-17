@@ -204,6 +204,10 @@ Scroll
   @apply overflow-y-scroll;
 }
 
+.scrollbar-gutter {
+  scrollbar-gutter: stable;
+}
+
 .scrollable::-webkit-scrollbar {
   @apply w-0;
 }

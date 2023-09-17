@@ -1,12 +1,11 @@
 import React, {ReactNode} from 'react'
-import Button from '../../Button/Button'
-
+import {motion} from "framer-motion"
 const PanelWrapper = ({children}: {children: ReactNode}) => {
   console.log('[Notification->PanelWrapper]: Render')
   return (
-    <div className="absolute inset-0 flex-col flex float-from-right">
+    <motion.div initial={{x: 50}} animate={{x: 0}} className="absolute inset-0 flex-col flex">
       {children}
-    </div>
+    </motion.div>
   )
 }
 

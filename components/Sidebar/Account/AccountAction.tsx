@@ -8,7 +8,7 @@ import React, {useEffect, useRef} from 'react'
 import {useDispatch} from 'react-redux'
 import {SignOutButton} from '@clerk/nextjs'
 import {StoreDispatch} from '@/store'
-
+import {motion} from "framer-motion"
 const AccountAction = () => {
   const dispatch: StoreDispatch = useDispatch()
   const accountActionRef = useRef<HTMLUListElement>(null)
@@ -40,9 +40,11 @@ const AccountAction = () => {
 
   console.log('[Sidebar->Account-Action]: Render')
   return (
-    <ul
+    <motion.ul
+      initial={{opacity: 0, y: -10}}
+      animate={{opacity: 1, y: 0}}
       ref={accountActionRef}
-      className="account-action shadow-c-primary absolute w-[60%] left-20 py-[10px] top-[80%] text-left bg-white rounded-lg z-10 transition-all duration-75 block">
+      className="shadow-c-primary absolute w-[60%] left-20 py-[10px] top-[80%] text-left bg-white rounded-lg z-10 transition-all duration-75 block">
       <li>
         <a
           href="#"
@@ -76,7 +78,7 @@ const AccountAction = () => {
           <SignOutButton>Sign out</SignOutButton>
         </a>
       </li>
-    </ul>
+    </motion.ul>
   )
 }
 

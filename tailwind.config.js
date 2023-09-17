@@ -43,6 +43,8 @@ module.exports = {
         white: '#fff',
         brown: '#cc5833',
         'light-gray': '#6c757d',
+        'light-blue': '#0dcaf0',
+        'purple': '#6610f2',
       },
     },
   },

@@ -34,7 +34,7 @@ const Vetra: React.FC<VetraProps> = ({children}: VetraProps) => {
           isNotificationOpen || isSettingOpen
             ? 'overflow-y-hidden'
             : 'overflow-y-scroll'
-        } inset-0 absolute xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear`}>
+        } scrollbar-gutter inset-0 absolute xl:inset-0 xl:left-sidebar transition-all duration-75 ease-linear`}>
         <div className="relative">
           <Header />
           {children}
